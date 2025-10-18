@@ -35,7 +35,7 @@ export const Contact = () => {
             className="space-y-4 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6 }
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3">
