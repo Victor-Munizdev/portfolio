@@ -67,25 +67,6 @@ export function Projects() {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center space-y-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <p className="text-white text-lg font-semibold">Ver Projeto</p>
-                      <Button
-                        size="sm"
-                        className="bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg"
-                        asChild
-                      >
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Acessar
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
                 </div>
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
@@ -106,6 +87,20 @@ export function Projects() {
                       </Badge>
                     ))}
                   </div>
+                  <Button
+                    size="sm"
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg mt-4"
+                    asChild
+                  >
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Ver Projeto
+                    </a>
+                  </Button>
                 </div>
               </Card>
             ))}
