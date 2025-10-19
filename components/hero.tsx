@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 py-16 md:px-6 md:py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden"
     >
       {/* Animated gradient blobs */}
       <div className="absolute inset-0 overflow-hidden">
@@ -46,13 +46,13 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="relative z-10 max-w-4xl w-full text-center space-y-8 md:space-y-12"
+        className="relative z-10 max-w-4xl w-full text-center space-y-12"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight"
+          className="text-5xl md:text-7xl font-bold text-white leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
