@@ -121,7 +121,7 @@ export function Experience() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Minha trajetória no desenvolvimento de software
+              Minha trajetória profissional
             </motion.p>
           </div>
 
