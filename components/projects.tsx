@@ -40,16 +40,16 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="px-6 py-20 md:py-32 bg-black">
+    <section id="projects" className="px-4 py-16 md:px-6 md:py-32 bg-black">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="text-purple-400 text-2xl">✦</span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Portfólio</h2>
+        <div className="space-y-8 md:space-y-12">
+          <div className="space-y-3 md:space-y-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <span className="text-purple-400 text-xl md:text-2xl">✦</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">Portfólio</h2>
             </div>
-            <p className="text-xl text-white/60">Projetos em Destaque</p>
-            <p className="text-base text-white/60 max-w-2xl text-pretty">
+            <p className="text-lg md:text-xl text-white/60">Projetos em Destaque</p>
+            <p className="text-sm md:text-base text-white/60 max-w-2xl text-pretty">
               Uma coleção dos meus trabalhos mais recentes.
             </p>
           </div>
@@ -60,7 +60,7 @@ export function Projects() {
                 key={project.title}
                 className="group overflow-hidden bg-white/5 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="aspect-[16/9] overflow-hidden bg-muted max-h-64 relative group-hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-[16/9] overflow-hidden bg-muted max-h-48 md:max-h-64 relative group-hover:shadow-lg transition-shadow duration-300">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -90,8 +90,8 @@ export function Projects() {
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold text-white/80 group-hover:text-white transition-colors">
-                        {project.title}
+                      <h3 className="text-lg md:text-xl font-semibold text-white/80 group-hover:text-white transition-colors">
+                          {project.title}
                       </h3>
                     </div>
                     <Badge variant="secondary" className="text-xs bg-purple-500/20 text-purple-300 border-purple-500/30">

@@ -43,9 +43,9 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 bg-black/80 backdrop-blur-sm">
-        <div className="flex items-center gap-3">
-          <span className="text-white font-bold text-lg">Victor Muniz</span>
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 md:px-12 md:py-6 bg-black/80 backdrop-blur-sm">
+        <div className="flex items-center gap-2 md:gap-3">
+          <span className="text-white font-bold text-sm md:text-lg">Victor Muniz</span>
         </div>
 
         <Button
@@ -55,9 +55,9 @@ export function Header() {
             setIsMenuOpen(true)
             setHasAnimated(false)
           }}
-          className="text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-4 py-2 rounded-lg border border-transparent hover:border-purple-500/30"
+          className="text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-transparent hover:border-purple-500/30"
         >
-          <span className="text-white mr-2 font-mono text-sm">Menu</span>
+          <span className="text-white mr-2 font-mono text-xs">Menu</span>
           <Menu className="h-5 w-5" />
         </Button>
       </header>
@@ -67,12 +67,12 @@ export function Header() {
         <div className={`fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`}>
           <div className="flex h-full">
             {/* Left side - blurred background */}
-            <div className="hidden md:block flex-1 relative overflow-hidden">
+            <div className="hidden lg:block flex-1 relative overflow-hidden">
               <div className={`absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent blur-3xl ${isClosing ? 'animate-slide-out-left' : 'animate-slide-in-left'}`} />
             </div>
 
             {/* Right side - menu */}
-            <div className={`w-full md:w-[500px] bg-gradient-to-b from-black/90 to-purple-900/80 backdrop-blur-md flex flex-col justify-between p-12 border-l border-purple-500/20 ${isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right'}`}>
+            <div className={`w-full lg:w-[500px] bg-gradient-to-b from-black/90 to-purple-900/80 backdrop-blur-md flex flex-col justify-between p-6 md:p-12 border-l border-purple-500/20 ${isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right'}`}>
               <Button
                 variant="ghost"
                 size="default"
@@ -83,9 +83,9 @@ export function Header() {
                     setIsClosing(false)
                   }, 500)
                 }}
-                className="self-end text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-4 py-2 rounded-lg border border-transparent hover:border-purple-500/30"
+                className="self-end text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-transparent hover:border-purple-500/30"
               >
-                <span className="text-white mr-2 font-mono text-sm">Close</span>
+                <span className="text-white mr-2 font-mono text-xs">Close</span>
                 <X className="h-5 w-5 transition-transform hover:rotate-90" />
               </Button>
 
@@ -109,8 +109,8 @@ export function Header() {
                     className={`group flex items-baseline gap-4 text-white hover:text-purple-400 transition-all duration-300 hover:translate-x-2 cursor-pointer ${isClosing ? 'animate-fade-out' : 'animate-cube-rotate'}`}
                     style={{ animationDelay: isClosing ? '0ms' : `${index * 200}ms` }}
                   >
-                    <span className="text-purple-500 font-mono text-sm">{item.number}</span>
-                    <span className="text-5xl md:text-6xl font-bold font-sans tracking-tight">{item.label}</span>
+                    <span className="text-purple-500 font-mono text-xs">{item.number}</span>
+                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-sans tracking-tight">{item.label}</span>
                   </a>
                 ))}
               </nav>

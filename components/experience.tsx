@@ -92,7 +92,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="px-6 py-20 md:py-32 bg-black">
+    <section id="experience" className="px-4 py-16 md:px-6 md:py-32 bg-black">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="space-y-12"
@@ -101,11 +101,11 @@ export function Experience() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           >
-          <div className="space-y-4 text-center">
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-purple-400 text-2xl">✦</span>
+          <div className="space-y-3 md:space-y-4 text-center">
+            <div className="flex items-center justify-center gap-2 md:gap-3">
+              <span className="text-purple-400 text-xl md:text-2xl">✦</span>
               <motion.h2
-                className="text-3xl md:text-4xl font-bold tracking-tight text-white"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -115,7 +115,7 @@ export function Experience() {
               </motion.h2>
             </div>
             <motion.p
-              className="text-xl text-white/60"
+              className="text-lg md:text-xl text-white/60"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -127,39 +127,39 @@ export function Experience() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-purple-600"></div>
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-purple-600"></div>
 
             <div className="space-y-12">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
-                  className="relative flex gap-8"
+                  className="relative flex gap-4 md:gap-8"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
                 >
                   {/* Timeline dot */}
-                  <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
-                    <Building className="h-6 w-6 text-white" />
+                  <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
+                    <Building className="h-4 w-4 md:h-6 md:w-6 text-white" />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 space-y-4 pb-12">
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
-                      <div className="flex flex-wrap items-center gap-4 text-purple-400">
+                      <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
+                      <div className="flex flex-wrap items-center gap-2 md:gap-4 text-purple-400">
                         <div className="flex items-center gap-1">
-                          <Building className="h-4 w-4" />
-                          <span className="font-medium">{exp.company}</span>
+                          <Building className="h-3 w-3 md:h-4 md:w-4" />
+                          <span className="font-medium text-sm md:text-base">{exp.company}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          <span>{exp.location}</span>
+                          <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+                          <span className="text-sm md:text-base">{exp.location}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{exp.period}</span>
+                          <Calendar className="h-3 w-3 md:h-4 md:w-4" />
+                          <span className="text-sm md:text-base">{exp.period}</span>
                         </div>
                       </div>
                     </div>

@@ -46,7 +46,7 @@ export function Skills() {
   return (
     <motion.section
       id="skills"
-      className="px-6 py-20 md:py-32 bg-black"
+      className="px-4 py-16 md:px-6 md:py-32 bg-black"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -54,7 +54,7 @@ export function Skills() {
     >
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-white mb-16 tracking-tight text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 md:mb-16 tracking-tight text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
