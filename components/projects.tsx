@@ -40,16 +40,16 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="px-4 py-16 md:px-6 md:py-32 bg-black">
+    <section id="projects" className="px-6 py-20 md:py-32 bg-black">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-8 md:space-y-12">
-          <div className="space-y-3 md:space-y-4">
-            <div className="flex items-center gap-2 md:gap-3">
-              <span className="text-purple-400 text-xl md:text-2xl">✦</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">Portfólio</h2>
+        <div className="space-y-12">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-purple-400 text-2xl">✦</span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Portfólio</h2>
             </div>
-            <p className="text-lg md:text-xl text-white/60">Projetos em Destaque</p>
-            <p className="text-sm md:text-base text-white/60 max-w-2xl text-pretty">
+            <p className="text-xl text-white/60">Projetos em Destaque</p>
+            <p className="text-base text-white/60 max-w-2xl text-pretty">
               Uma coleção dos meus trabalhos mais recentes.
             </p>
           </div>
@@ -60,18 +60,37 @@ export function Projects() {
                 key={project.title}
                 className="group overflow-hidden bg-white/5 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="aspect-[16/9] overflow-hidden bg-muted max-h-48 md:max-h-64 relative group-hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-[16/9] overflow-hidden bg-muted relative group-hover:shadow-lg transition-shadow duration-300">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center space-y-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <p className="text-white text-lg font-semibold">Ver Projeto</p>
+                      <Button
+                        size="sm"
+                        className="bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg"
+                        asChild
+                      >
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Acessar
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg md:text-xl font-semibold text-white/80 group-hover:text-white transition-colors">
+                      <h3 className="text-xl font-semibold text-white/80 group-hover:text-white transition-colors">
                           {project.title}
                       </h3>
                     </div>
@@ -87,20 +106,6 @@ export function Projects() {
                       </Badge>
                     ))}
                   </div>
-                  <Button
-                    size="sm"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg mt-4"
-                    asChild
-                  >
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver Projeto
-                    </a>
-                  </Button>
                 </div>
               </Card>
             ))}

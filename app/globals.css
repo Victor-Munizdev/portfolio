@@ -174,16 +174,32 @@
 /* Mobile animation optimizations */
 @media (max-width: 768px) {
   .animate-fade-in {
-    animation-duration: 0.2s;
+    animation-duration: 0.1s;
   }
 
   .animate-slide-in-left,
   .animate-slide-in-right {
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
   }
 
   .animate-cube-rotate {
-    animation-duration: 0.8s;
+    animation-duration: 0.5s;
+  }
+
+  /* Disable complex animations on mobile for performance */
+  .animate-blob,
+  .animation-delay-2000,
+  .animation-delay-4000,
+  .animation-delay-6000 {
+    animation: none !important;
+  }
+
+  /* Reduce motion for better performance */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
