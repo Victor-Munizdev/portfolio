@@ -1,7 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Calendar, MapPin, Building } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const experiences = [
   {
@@ -91,6 +93,9 @@ const experiences = [
 ]
 
 export function Experience() {
+  const [showAll, setShowAll] = useState(false)
+  const displayedExperiences = showAll ? experiences : experiences.slice(0, 2)
+
   return (
     <section id="experience" className="px-4 py-16 md:px-6 md:py-32 bg-black">
       <div className="max-w-6xl mx-auto">
@@ -130,15 +135,20 @@ export function Experience() {
             <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-purple-600"></div>
 
             <div className="space-y-12">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  className="relative flex gap-4 md:gap-8"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                >
+              <AnimatePresence>
+                {displayedExperiences.map((exp, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative flex gap-4 md:gap-8"
+                    initial={{ opacity: 0, x: -50, y: 20 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    exit={{ opacity: 0, x: -50, y: -20, height: 0 }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: index >= 2 ? (index - 2) * 0.15 : 0,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                  >
                   {/* Timeline dot */}
                   <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
                     <Building className="h-4 w-4 md:h-6 md:w-6 text-white" />
@@ -197,9 +207,21 @@ export function Experience() {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                ))}
+              </AnimatePresence>
             </div>
           </div>
+
+          {experiences.length > 2 && (
+            <div className="flex justify-center mt-8">
+              <Button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg"
+              >
+                {showAll ? "Ver menos" : "Ver mais"}
+              </Button>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>

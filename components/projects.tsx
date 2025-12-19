@@ -1,3 +1,7 @@
+"use client"
+
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -36,9 +40,76 @@ const projects = [
     image: "/website/nasli.png",
     link: "https://sistema-relatorios-gruponasli.vercel.app",
   },
+  {
+    title: "VextoTech Mail",
+    description: "Plataforma de email profissional da VextoTech com interface moderna, gerenciamento de contas e recursos avançados de comunicação empresarial.",
+    tags: ["React", "Tailwind", "TypeScript"],
+    status: "Publicado",
+    image: "/website/vextotech_mail.png",
+    link: "https://mail.vextotech.com",
+  },
+  {
+    title: "VextoTech SMS",
+    description: "Sistema de envio de SMS empresarial com API integrada, dashboard de controle e relatórios detalhados de campanhas de mensagens.",
+    tags: ["React", "Tailwind", "API"],
+    status: "Publicado",
+    image: "/website/vextotech_sms.png",
+    link: "https://sms.vextotech.com",
+  },
+  {
+    title: "VextoTech Components",
+    description: "Biblioteca de componentes reutilizáveis e documentação completa para desenvolvedores, com exemplos práticos e código aberto.",
+    tags: ["React", "Tailwind", "Documentation"],
+    status: "Publicado",
+    image: "/website/vextotech_components.png",
+    link: "https://components.vextotech.com",
+  },
+  {
+    title: "Hells Brindes - Landing Page",
+    description: "Landing page moderna e responsiva para empresa de brindes corporativos, com design atrativo e foco em conversão de leads.",
+    tags: ["React", "Tailwind", "Vercel"],
+    status: "Publicado",
+    image: "/website/hellsbrindes.png",
+    link: "https://hellsbrindes-landing.vercel.app",
+  },
+  {
+    title: "Doce Manhã",
+    description: "Site institucional para confeitaria e doces artesanais, apresentando produtos, cardápio e informações de contato com design doce e acolhedor.",
+    tags: ["React", "Tailwind", "Vercel"],
+    status: "Publicado",
+    image: "/website/doce_manha.png",
+    link: "https://doce-manha.vercel.app",
+  },
+  {
+    title: "Synergy Quasar",
+    description: "Plataforma corporativa da Synergy Quasar apresentando soluções empresariais, serviços e tecnologias inovadoras para automação de processos.",
+    tags: ["React", "Tailwind", "Enterprise"],
+    status: "Publicado",
+    image: "/website/synergy_quasar.png",
+    link: "https://www.synergy-quasar.com",
+  },
+  {
+    title: "Synergy Quasar - Logistic",
+    description: "Sistema completo de gestão logística com controle de estoque, rastreamento de entregas, otimização de rotas e dashboard em tempo real.",
+    tags: ["React", "Tailwind", "Logistics"],
+    status: "Publicado",
+    image: "/website/synergy_logistic.png",
+    link: "https://logistic.synergy-quasar.com",
+  },
+  {
+    title: "Synergy Quasar - Finance",
+    description: "Plataforma de controle financeiro inteligente com gestão de contas, relatórios financeiros, análise de dados e automação de processos contábeis.",
+    tags: ["React", "Tailwind", "Finance"],
+    status: "Publicado",
+    image: "/website/synergy_finance.png",
+    link: "https://finance.synergy-quasar.com",
+  },
 ]
 
 export function Projects() {
+  const [showAll, setShowAll] = useState(false)
+  const displayedProjects = showAll ? projects : projects.slice(0, 2)
+
   return (
     <section id="projects" className="px-6 py-20 md:py-32 bg-black">
       <div className="max-w-6xl mx-auto">
@@ -55,11 +126,22 @@ export function Projects() {
           </div>
 
           <div className="grid gap-8 grid-cols-1">
-            {projects.map((project) => (
-              <Card
-                key={project.title}
-                className="group overflow-hidden bg-white/5 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300"
-              >
+            <AnimatePresence>
+              {displayedProjects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20, height: 0 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: index >= 2 ? (index - 2) * 0.1 : 0,
+                    ease: [0.4, 0, 0.2, 1]
+                  }}
+                >
+                  <Card
+                    className="group overflow-hidden bg-white/5 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300"
+                  >
                 <div className="aspect-[16/9] overflow-hidden bg-muted relative group-hover:shadow-lg transition-shadow duration-300">
                   <img
                     src={project.image || "/placeholder.svg"}
@@ -108,8 +190,21 @@ export function Projects() {
                   </div>
                 </div>
               </Card>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
+
+          {projects.length > 2 && (
+            <div className="flex justify-center">
+              <Button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg"
+              >
+                {showAll ? "Ver menos" : "Ver mais"}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
