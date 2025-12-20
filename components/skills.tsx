@@ -99,18 +99,25 @@ export function Skills() {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      {category.skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skill.name}
-                          className="space-y-1"
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
-                        >
-                          <h4 className="font-medium text-white font-mono text-sm">{skill.name}</h4>
-                          <p className="text-sm text-white/60 font-mono">{skill.description}</p>
-                        </motion.div>
-                      ))}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {category.skills.map((skill, skillIndex) => (
+                          <motion.div
+                            key={skill.name}
+                            className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
+                            whileHover={{ scale: 1.02 }}
+                          >
+                            <h4 className="font-semibold text-white font-mono text-sm mb-2 group-hover:text-purple-400 transition-colors">
+                              {skill.name}
+                            </h4>
+                            <p className="text-xs text-white/60 font-mono leading-relaxed">
+                              {skill.description}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </div>
                     </motion.div>
                   )}
                 </motion.div>

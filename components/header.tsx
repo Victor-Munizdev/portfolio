@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
@@ -130,48 +130,111 @@ export function Header() {
               )}
               
               {/* Content with relative positioning */}
-              <div className="relative z-10 flex flex-col justify-between h-full">
-              <Button
-                variant="ghost"
-                size="default"
-                onClick={() => {
-                  setIsClosing(true)
-                  setTimeout(() => {
-                    setIsMenuOpen(false)
-                    setIsClosing(false)
-                  }, 500)
-                }}
-                className="self-end text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-transparent hover:border-purple-500/30"
-              >
-                <span className="text-white mr-2 font-mono text-xs">Close</span>
-                <X className="h-5 w-5 transition-transform hover:rotate-90" />
-              </Button>
-
-              <nav className="flex-1 flex flex-col justify-center gap-8">
-                {menuItems.map((item, index) => (
-                  <a
-                    key={item.number}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault()
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-8 md:mb-12">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Victor Muniz</h3>
+                    <p className="text-sm text-white/60 font-mono">Desenvolvedor Full-Stack</p>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="default"
+                    onClick={() => {
                       setIsClosing(true)
                       setTimeout(() => {
                         setIsMenuOpen(false)
                         setIsClosing(false)
-                        const element = document.querySelector(item.href)
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' })
-                        }
                       }, 500)
                     }}
-                    className={`group flex items-baseline gap-4 text-white hover:text-purple-400 transition-all duration-300 hover:translate-x-2 cursor-pointer ${isClosing ? 'animate-fade-out' : 'animate-cube-rotate'}`}
-                    style={{ animationDelay: isClosing ? '0ms' : `${index * 200}ms` }}
+                    className="text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-transparent hover:border-purple-500/30"
                   >
-                    <span className="text-purple-500 font-mono text-xs">{item.number}</span>
-                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-sans tracking-tight">{item.label}</span>
-                  </a>
-                ))}
-              </nav>
+                    <X className="h-5 w-5 transition-transform hover:rotate-90" />
+                  </Button>
+                </div>
+
+                {/* Navigation */}
+                <nav className="flex-1 flex flex-col justify-center gap-6 md:gap-8">
+                  {menuItems.map((item, index) => (
+                    <motion.a
+                      key={item.number}
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        setIsClosing(true)
+                        setTimeout(() => {
+                          setIsMenuOpen(false)
+                          setIsClosing(false)
+                          const element = document.querySelector(item.href)
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' })
+                          }
+                        }, 500)
+                      }}
+                      className={`group flex items-center gap-4 text-white hover:text-purple-400 transition-all duration-300 hover:translate-x-2 cursor-pointer py-2 ${isClosing ? 'animate-fade-out' : ''}`}
+                      style={{ animationDelay: isClosing ? '0ms' : `${index * 100}ms` }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <span className="text-purple-500 font-mono text-sm md:text-base min-w-[40px]">{item.number}</span>
+                      <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-sans tracking-tight border-b border-transparent group-hover:border-purple-400/50 transition-all duration-300">
+                        {item.label}
+                      </span>
+                    </motion.a>
+                  ))}
+                </nav>
+
+                {/* Footer - Social Links */}
+                <div className="mt-auto pt-8 border-t border-white/10">
+                  <div className="space-y-4">
+                    <p className="text-xs text-white/60 font-mono mb-3">Redes Sociais</p>
+                    <div className="flex flex-wrap gap-3">
+                      <motion.a
+                        href="https://github.com/Victor-Munizdev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Github className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
+                      </motion.a>
+                      <motion.a
+                        href="https://www.linkedin.com/in/victor-muniz-56a64b337/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Linkedin className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
+                      </motion.a>
+                      <motion.a
+                        href="https://instagram.com/victor_munizdv"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Instagram className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
+                      </motion.a>
+                      <motion.a
+                        href="mailto:munizzvr@gmail.com"
+                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Mail className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
+                      </motion.a>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white/50 font-mono pt-2">
+                      <MapPin className="h-3 w-3" />
+                      <span>São Paulo, Brasil</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
