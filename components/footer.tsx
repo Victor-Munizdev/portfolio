@@ -39,13 +39,26 @@ export function Footer() {
           >
             <h4 className="text-lg font-semibold text-white">Links Rápidos</h4>
             <nav className="flex flex-col gap-2">
-              {["Skills", "Experiência", "Projetos", "Certificados", "Contato"].map((link) => (
+              {[
+                { label: "Skills", href: "#skills" },
+                { label: "Experiência", href: "#experience" },
+                { label: "Projetos", href: "#projects" },
+                { label: "Certificados", href: "#certificates" },
+                { label: "Contato", href: "#contact" },
+              ].map((link) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace("ç", "c")}`}
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    const element = document.querySelector(link.href)
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
                   className="text-sm text-white/60 hover:text-purple-400 transition-colors w-fit"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </nav>
