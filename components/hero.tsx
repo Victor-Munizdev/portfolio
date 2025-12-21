@@ -7,9 +7,8 @@ import { ChevronDown, Code, Briefcase, Award, Users } from "lucide-react"
 
 const stats = [
   { icon: Code, value: "12+", label: "Projetos" },
-  { icon: Briefcase, value: "3+", label: "Anos Exp." },
+  { icon: Briefcase, value: "2+", label: "Anos Exp." },
   { icon: Award, value: "3", label: "Certificados" },
-  { icon: Users, value: "5+", label: "Clientes" },
 ]
 
 export function Hero() {
@@ -80,7 +79,7 @@ export function Hero() {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto"
+            className="flex flex-wrap items-center justify-center gap-4 md:gap-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -104,7 +103,7 @@ export function Hero() {
             })}
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             className="flex flex-wrap items-center justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
@@ -115,27 +114,14 @@ export function Hero() {
               size="lg"
               className="bg-purple-600 hover:bg-purple-700 text-white font-mono gap-2 border-0 shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
               onClick={() => {
-                const element = document.querySelector('#projects')
+                const element = document.querySelector('#skills')
                 if (element) {
                   element.scrollIntoView({ behavior: 'smooth' })
                 }
               }}
             >
               <img src="/logo.png" alt="Logo" className="h-4 w-4" />
-              Ver Projetos
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-black hover:text-purple-400 hover:bg-purple-500/10 font-mono gap-2 border border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:scale-105"
-              onClick={() => {
-                const element = document.querySelector('#contact')
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' })
-                }
-              }}
-            >
-              Contato
+              Habilidades
             </Button>
           </motion.div>
         </div>

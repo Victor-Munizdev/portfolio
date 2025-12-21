@@ -9,68 +9,12 @@ import { ExternalLink } from "lucide-react"
 
 const projects = [
   {
-    title: "Sistema Médico - NexisMed",
-    description: "Plataforma completa que revoluciona o atendimento médico com tecnologia de ponta, integrando telemedicina, receituário digital, localizador de clínicas e analytics médico desenvolvido em PHP, HTML, CSS e JavaScript.",
-    tags: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
-    status: "Concluído",
-    image: "/website/nexismed.png",
-    link: "https://limegreen-partridge-570568.hostingersite.com",
-  },
-  {
-    title: "VextoTech - Institucional",
-    description: "Site institucional da VextoTech apresentando serviços de desenvolvimento web, design e soluções tecnológicas.",
-    tags: ["React", "Tailwind"],
-    status: "Publicado",
-    image: "/website/vextotech_institucional.png",
-    link: "https://www.vextotech.com",
-  },
-  {
-    title: "VextoTech Shop",
-    description: "Loja online da VextoTech com produtos digitais, templates e soluções para desenvolvedores.",
-    tags: ["React", "Tailwind", "Vite"],
-    status: "Publicado",
-    image: "/website/vextotechecommerce.png",
-    link: "https://shop.vextotech.com",
-  },
-  {
-    title: "Nasli - Sistema de Relatórios e Gestão de Vistoria Veicular",
-    description: "Sistema completo para gestão de vistorias veiculares, relatórios detalhados e controle administrativo para empresas do setor automotivo.",
-    tags: ["React", "Tailwind"],
-    status: "Publicado",
-    image: "/website/nasli.png",
-    link: "https://sistema-relatorios-gruponasli.vercel.app",
-  },
-  {
-    title: "VextoTech Mail",
-    description: "Plataforma de email profissional da VextoTech com interface moderna, gerenciamento de contas e recursos avançados de comunicação empresarial.",
-    tags: ["React", "Tailwind", "TypeScript"],
-    status: "Publicado",
-    image: "/website/vextotech_mail.png",
-    link: "https://mail.vextotech.com",
-  },
-  {
-    title: "VextoTech SMS",
-    description: "Sistema de envio de SMS empresarial com API integrada, dashboard de controle e relatórios detalhados de campanhas de mensagens.",
-    tags: ["React", "Tailwind", "API"],
-    status: "Publicado",
-    image: "/website/vextotech_sms.png",
-    link: "https://sms.vextotech.com",
-  },
-  {
-    title: "VextoTech Components",
-    description: "Biblioteca de componentes reutilizáveis e documentação completa para desenvolvedores, com exemplos práticos e código aberto.",
-    tags: ["React", "Tailwind", "Documentation"],
-    status: "Publicado",
-    image: "/website/vextotech_components.png",
-    link: "https://components.vextotech.com",
-  },
-  {
-    title: "Hells Brindes - Landing Page",
-    description: "Landing page moderna e responsiva para empresa de brindes corporativos, com design atrativo e foco em conversão de leads.",
+    title: "Carioca Bartender - Portfólio",
+    description: "Site portfólio desenvolvido para um bartender, apresentando seus drinks, especialidades e serviços com design moderno e atrativo. Plataforma para destacar criações e experiência profissional na área de mixologia.",
     tags: ["React", "Tailwind", "Vercel"],
     status: "Publicado",
-    image: "/website/hellsbrindes.png",
-    link: "https://hellsbrindes-landing.vercel.app",
+    image: "/website/carioca_bartender.png",
+    link: "https://carioca-bartender.vercel.app",
   },
   {
     title: "Doce Manhã",
@@ -81,12 +25,60 @@ const projects = [
     link: "https://doce-manha.vercel.app",
   },
   {
+    title: "Exposoft Alcina - 39ª Edição",
+    description: "Site desenvolvido para apresentação dos trabalhos de conclusão de curso (TCC) de T.I da EME Professora Alcina Dantas Feijão. Plataforma para exibir projetos dos alunos do 3º ano, história da exposição e edições anteriores.",
+    tags: ["React", "Tailwind", "Next.js"],
+    status: "Publicado",
+    image: "/website/exposoft_alcina.png",
+    link: "https://exposoftalcina.com",
+  },
+  {
+    title: "Hells Brindes - Landing Page",
+    description: "Landing page moderna e responsiva para empresa de brindes corporativos, com design atrativo e foco em conversão de leads.",
+    tags: ["React", "Tailwind", "Vercel"],
+    status: "Publicado",
+    image: "/website/hellsbrindes.png",
+    link: "https://hellsbrindes-landing.vercel.app",
+  },
+  {
+    title: "Nasli - Sistema de Relatórios e Gestão de Vistoria Veicular",
+    description: "Sistema completo para gestão de vistorias veiculares, relatórios detalhados e controle administrativo para empresas do setor automotivo.",
+    tags: ["React", "Tailwind"],
+    status: "Publicado",
+    image: "/website/nasli.png",
+    link: "https://sistema-relatorios-gruponasli.vercel.app",
+  },
+  {
+    title: "Nexus API - Portal Centralizado de APIs",
+    description: "Portal centralizado que conecta desenvolvedores com as melhores APIs do mercado. Mais de 200 APIs catalogadas com instruções claras, exemplos práticos e acesso simplificado. Plataforma 100% gratuita para facilitar a integração de APIs.",
+    tags: ["React", "Tailwind"],
+    status: "Publicado",
+    image: "/website/nexus_api.png",
+    link: "https://nexus-api-gamma.vercel.app",
+  },
+  {
+    title: "Sistema Médico - NexisMed",
+    description: "Plataforma completa que revoluciona o atendimento médico com tecnologia de ponta, integrando telemedicina, receituário digital, localizador de clínicas e analytics médico desenvolvido em PHP, HTML, CSS e JavaScript.",
+    tags: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
+    status: "Concluído",
+    image: "/website/nexismed.png",
+    link: "https://limegreen-partridge-570568.hostingersite.com",
+  },
+  {
     title: "Synergy Quasar",
     description: "Plataforma corporativa da Synergy Quasar apresentando soluções empresariais, serviços e tecnologias inovadoras para automação de processos.",
     tags: ["React", "Tailwind", "Enterprise"],
     status: "Publicado",
     image: "/website/synergy_quasar.png",
     link: "https://www.synergy-quasar.com",
+  },
+  {
+    title: "Synergy Quasar - Finance",
+    description: "Plataforma de controle financeiro inteligente com gestão de contas, relatórios financeiros, análise de dados e automação de processos contábeis.",
+    tags: ["React", "Tailwind", "Finance"],
+    status: "Publicado",
+    image: "/website/synergy_finance.png",
+    link: "https://finance.synergy-quasar.com",
   },
   {
     title: "Synergy Quasar - Logistic",
@@ -97,18 +89,63 @@ const projects = [
     link: "https://logistic.synergy-quasar.com",
   },
   {
-    title: "Synergy Quasar - Finance",
-    description: "Plataforma de controle financeiro inteligente com gestão de contas, relatórios financeiros, análise de dados e automação de processos contábeis.",
-    tags: ["React", "Tailwind", "Finance"],
+    title: "VextoTech - Institucional",
+    description: "Site institucional da VextoTech apresentando serviços de desenvolvimento web, design e soluções tecnológicas.",
+    tags: ["React", "Tailwind"],
     status: "Publicado",
-    image: "/website/synergy_finance.png",
-    link: "https://finance.synergy-quasar.com",
+    image: "/website/vextotech_institucional.png",
+    link: "https://www.vextotech.com",
+  },
+  {
+    title: "VextoTech Components",
+    description: "Biblioteca de componentes reutilizáveis e documentação completa para desenvolvedores, com exemplos práticos e código aberto.",
+    tags: ["React", "Tailwind", "Documentation"],
+    status: "Publicado",
+    image: "/website/vextotech_components.png",
+    link: "https://components.vextotech.com",
+  },
+  {
+    title: "VextoTech Mail",
+    description: "Plataforma de email profissional da VextoTech com interface moderna, gerenciamento de contas e recursos avançados de comunicação empresarial.",
+    tags: ["React", "Tailwind", "TypeScript"],
+    status: "Publicado",
+    image: "/website/vextotech_mail.png",
+    link: "https://mail.vextotech.com",
+  },
+  {
+    title: "VextoTech Shop",
+    description: "Loja online da VextoTech com produtos digitais, templates e soluções para desenvolvedores.",
+    tags: ["React", "Tailwind", "Vite"],
+    status: "Publicado",
+    image: "/website/vextotechecommerce.png",
+    link: "https://shop.vextotech.com",
+  },
+  {
+    title: "VextoTech SMS",
+    description: "Sistema de envio de SMS empresarial com API integrada, dashboard de controle e relatórios detalhados de campanhas de mensagens.",
+    tags: ["React", "Tailwind", "API"],
+    status: "Publicado",
+    image: "/website/vextotech_sms.png",
+    link: "https://sms.vextotech.com",
   },
 ]
 
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
+  const [expandedTags, setExpandedTags] = useState<Set<string>>(new Set())
   const displayedProjects = showAll ? projects : projects.slice(0, 2)
+
+  const toggleTags = (projectTitle: string) => {
+    setExpandedTags((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(projectTitle)) {
+        newSet.delete(projectTitle)
+      } else {
+        newSet.add(projectTitle)
+      }
+      return newSet
+    })
+  }
 
   return (
     <section id="projects" className="px-6 py-20 md:py-32 bg-black">
@@ -182,16 +219,40 @@ export function Projects() {
                         {project.description}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
-                        {project.tags.slice(0, 3).map((tag) => (
+                        {(expandedTags.has(project.title) ? project.tags : project.tags.slice(0, 3)).map((tag) => (
                           <Badge key={tag} variant="outline" className="text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500/10 px-1.5 py-0.5">
                             {tag}
                           </Badge>
                         ))}
                         {project.tags.length > 3 && (
-                          <Badge variant="outline" className="text-xs border-purple-500/30 text-purple-300 px-1.5 py-0.5">
-                            +{project.tags.length - 3}
+                          <Badge 
+                            variant="outline" 
+                            className="text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500/10 hover:border-purple-400/50 px-1.5 py-0.5 cursor-pointer transition-all duration-200"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              toggleTags(project.title)
+                            }}
+                          >
+                            {expandedTags.has(project.title) ? "Ver menos" : `+${project.tags.length - 3}`}
                           </Badge>
                         )}
+                      </div>
+                      {/* Mobile button - always visible on mobile */}
+                      <div className="mt-3 md:hidden">
+                        <Button
+                          size="sm"
+                          className="w-full bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg text-xs"
+                          asChild
+                        >
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="h-3 w-3 mr-1" />
+                            Ver Projeto
+                          </a>
+                        </Button>
                       </div>
                     </div>
                   </Card>

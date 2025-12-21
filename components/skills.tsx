@@ -36,6 +36,7 @@ const skillCategories = [
       { name: "Figma", description: "Design e prototipagem de interfaces" },
       { name: "VS Code", description: "Ambiente de desenvolvimento otimizado" },
       { name: "Postman", description: "Teste e documentação de APIs" },
+      { name: "Google Cloud APIs", description: "Integração com serviços e APIs do Google Cloud" },
     ],
   },
 ]
