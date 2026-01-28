@@ -10,7 +10,7 @@ import { ExternalLink } from "lucide-react"
 const projects = [
   {
     title: "Carioca Bartender - Portfólio",
-    description: "Site portfólio desenvolvido para um bartender, apresentando seus drinks, especialidades e serviços com design moderno e atrativo. Plataforma para destacar criações e experiência profissional na área de mixologia.",
+    description: "Cartão de visitas digital focado na apresentação do catálogo de drinks e serviços para eventos. Desenvolvido para facilitar o contato direto e exibir o trabalho profissional de mixologia.",
     tags: ["React", "Tailwind", "Vercel"],
     status: "Publicado",
     image: "/website/carioca_bartender.png",
@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "Doce Manhã",
-    description: "Site institucional para confeitaria e doces artesanais, apresentando produtos, cardápio e informações de contato com design doce e acolhedor.",
+    description: "Site institucional para confeitaria artesanal, com foco na exibição visual dos produtos e organização do cardápio digital para encomendas locais.",
     tags: ["React", "Tailwind", "Vercel"],
     status: "Publicado",
     image: "/website/doce_manha.png",
@@ -26,7 +26,7 @@ const projects = [
   },
   {
     title: "Exposoft Alcina - 39ª Edição",
-    description: "Site desenvolvido para apresentação dos trabalhos de conclusão de curso (TCC) de T.I da EME Professora Alcina Dantas Feijão. Plataforma para exibir projetos dos alunos do 3º ano, história da exposição e edições anteriores.",
+    description: "Plataforma oficial para a exposição de projetos acadêmicos de TI. Organiza o histórico do evento, detalhes dos trabalhos dos alunos e informações sobre as edições atuais e anteriores.",
     tags: ["HTML", "CSS", "JavaScript"],
     status: "Publicado",
     image: "/website/exposoft_alcina.png",
@@ -34,7 +34,7 @@ const projects = [
   },
   {
     title: "Hells Brindes - Landing Page",
-    description: "Landing page moderna e responsiva para empresa de brindes corporativos, com design atrativo e foco em conversão de leads.",
+    description: "Página de conversão voltada para a venda de brindes corporativos, focada em carregamento rápido e navegação intuitiva para geração de orçamentos.",
     tags: ["React", "Tailwind", "Vercel"],
     status: "Publicado",
     image: "/website/hellsbrindes.png",
@@ -42,7 +42,7 @@ const projects = [
   },
   {
     title: "Nasli - Sistema de Relatórios e Gestão de Vistoria Veicular",
-    description: "Sistema completo para gestão de vistorias veiculares, relatórios detalhados e controle administrativo para empresas do setor automotivo.",
+    description: "Ferramenta administrativa para controle de laudos vistorias. Gerencia o fluxo de dados entre vistorias realizadas e a geração automática de relatórios técnicos para frotas.",
     tags: ["React", "Tailwind"],
     status: "Publicado",
     image: "/website/nasli.png",
@@ -50,7 +50,7 @@ const projects = [
   },
   {
     title: "Nexus API - Portal Centralizado de APIs",
-    description: "Portal centralizado que conecta desenvolvedores com as melhores APIs do mercado. Mais de 200 APIs catalogadas com instruções claras, exemplos práticos e acesso simplificado. Plataforma 100% gratuita para facilitar a integração de APIs.",
+    description: "Repositório técnico que cataloga e documenta APIs externas. Facilita o acesso a documentações, exemplos de código e testes rápidos para outros desenvolvedores.",
     tags: ["React", "Tailwind"],
     status: "Publicado",
     image: "/website/nexus_api.png",
@@ -58,7 +58,7 @@ const projects = [
   },
   {
     title: "Sistema Médico - NexisMed",
-    description: "Plataforma completa que revoluciona o atendimento médico com tecnologia de ponta, integrando telemedicina, receituário digital, localizador de clínicas e analytics médico desenvolvido em PHP, HTML, CSS e JavaScript.",
+    description: "Interface para clínicas médicas com módulos de agendamento, prontuário eletrônico de pacientes e organização de faturamento administrativo.",
     tags: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
     status: "Concluído",
     image: "/website/nexismed.png",
@@ -66,7 +66,7 @@ const projects = [
   },
   {
     title: "Synergy Quasar",
-    description: "Plataforma corporativa da Synergy Quasar apresentando soluções empresariais, serviços e tecnologias inovadoras para automação de processos.",
+    description: "Portal administrativo para gestão interna de processos empresariais, com foco no monitoramento de fluxos de trabalho e indicadores de desempenho.",
     tags: ["React", "Tailwind", "Enterprise"],
     status: "Publicado",
     image: "/website/synergy_quasar.png",
@@ -74,7 +74,7 @@ const projects = [
   },
   {
     title: "Synergy Quasar - Finance",
-    description: "Plataforma de controle financeiro inteligente com gestão de contas, relatórios financeiros, análise de dados e automação de processos contábeis.",
+    description: "Painel de controle financeiro para fluxo de caixa, registro de entradas/saídas e geração de balanços mensais simplificados para pequenas empresas.",
     tags: ["React", "Tailwind", "Finance"],
     status: "Publicado",
     image: "/website/synergy_finance.png",
@@ -82,7 +82,7 @@ const projects = [
   },
   {
     title: "Synergy Quasar - Logistic",
-    description: "Sistema completo de gestão logística com controle de estoque, rastreamento de entregas, otimização de rotas e dashboard em tempo real.",
+    description: "Dashboard para acompanhamento de pedidos e estoque. Centraliza o status de entregas em tempo real e a movimentação de mercadorias no armazém.",
     tags: ["React", "Tailwind", "Logistics"],
     status: "Publicado",
     image: "/website/synergy_logistic.png",
@@ -90,7 +90,7 @@ const projects = [
   },
   {
     title: "VextoTech - Institucional",
-    description: "Site institucional da VextoTech apresentando serviços de desenvolvimento web, design e soluções tecnológicas.",
+    description: "Site para apresentação de serviços de desenvolvimento de software, com seções dedicadas ao portfólio da empresa e metodologias de trabalho.",
     tags: ["React", "Tailwind"],
     status: "Publicado",
     image: "/website/vextotech_institucional.png",
@@ -98,7 +98,7 @@ const projects = [
   },
   {
     title: "VextoTech Components",
-    description: "Biblioteca de componentes reutilizáveis e documentação completa para desenvolvedores, com exemplos práticos e código aberto.",
+    description: "Biblioteca de componentes para React baseada em figma, documentando padrões visuais e códigos reutilizáveis para projetos de front-end.",
     tags: ["React", "Tailwind", "Documentation"],
     status: "Publicado",
     image: "/website/vextotech_components.png",
@@ -106,7 +106,7 @@ const projects = [
   },
   {
     title: "VextoTech Mail",
-    description: "Plataforma de email profissional da VextoTech com interface moderna, gerenciamento de contas e recursos avançados de comunicação empresarial.",
+    description: "Protótipo de cliente de e-mail focado na organização de pastas e integração de contatos internos para comunicação corporativa.",
     tags: ["React", "Tailwind", "TypeScript"],
     status: "Publicado",
     image: "/website/vextotech_mail.png",
@@ -114,7 +114,7 @@ const projects = [
   },
   {
     title: "VextoTech Shop",
-    description: "Loja online da VextoTech com produtos digitais, templates e soluções para desenvolvedores.",
+    description: "E-commerce para venda de produtos digitais, com fluxo de carrinho, integração de pagamentos e painel de usuário para downloads.",
     tags: ["React", "Tailwind", "Vite"],
     status: "Publicado",
     image: "/website/vextotechecommerce.png",
@@ -122,7 +122,7 @@ const projects = [
   },
   {
     title: "VextoTech SMS",
-    description: "Sistema de envio de SMS empresarial com API integrada, dashboard de controle e relatórios detalhados de campanhas de mensagens.",
+    description: "Painel para disparo de mensagens em massa via API, com logs de entrega e painel de créditos para campanhas de marketing.",
     tags: ["React", "Tailwind", "API"],
     status: "Publicado",
     image: "/website/vextotech_sms.png",
