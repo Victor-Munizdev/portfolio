@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Menu, X, Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react"
+import { Menu, X, Github, Instagram, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
@@ -43,7 +43,7 @@ export function Header() {
   // Matrix characters
   const matrixChars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const getRandomChar = () => matrixChars[Math.floor(Math.random() * matrixChars.length)]
-  
+
   // Generate matrix columns
   const matrixColumns = Array.from({ length: 30 }, (_, i) => ({
     id: i,
@@ -87,7 +87,7 @@ export function Header() {
             <div className={`w-full lg:w-[500px] backdrop-blur-md flex flex-col justify-between p-6 md:p-12 border-l border-purple-500/20 relative overflow-hidden ${isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right'}`}>
               {/* Base gradient */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-purple-900/80" />
-              
+
               {/* Matrix rain effect */}
               {!isClosing && (
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -116,7 +116,7 @@ export function Header() {
                           style={{
                             opacity: idx === 0 ? 1 : Math.max(0.1, 1 - idx * 0.08),
                             color: idx === 0 ? "#ec4899" : idx < 3 ? "#c084fc" : "#a855f7",
-                            textShadow: idx === 0 
+                            textShadow: idx === 0
                               ? "0 0 5px rgba(236, 72, 153, 1), 0 0 10px rgba(236, 72, 153, 0.8)"
                               : "0 0 3px rgba(168, 85, 247, 0.8)",
                           }}
@@ -128,7 +128,7 @@ export function Header() {
                   ))}
                 </div>
               )}
-              
+
               {/* Content with relative positioning */}
               <div className="relative z-10 flex flex-col h-full">
                 {/* Header */}
@@ -199,16 +199,6 @@ export function Header() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <Github className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
-                      </motion.a>
-                      <motion.a
-                        href="https://www.linkedin.com/in/victor-muniz-56a64b337/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Linkedin className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
                       </motion.a>
                       <motion.a
                         href="https://instagram.com/victor_munizdv"

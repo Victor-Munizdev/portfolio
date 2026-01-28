@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Code, Palette, Briefcase } from "lucide-react"
+import { ChevronDown, Code, Server, Briefcase } from "lucide-react"
 import { motion } from "framer-motion"
 
 const skillCategories = [
@@ -17,10 +17,10 @@ const skillCategories = [
     ],
   },
   {
-    icon: Palette,
+    icon: Server,
     title: "Backend",
     skills: [
-      { name: "Next.js", description: "Framework React full-stack" },
+      { name: "Nest.js", description: "Framework Node.js para aplicações escaláveis" },
       { name: "PHP", description: "Linguagem server-side versátil" },
       { name: "MySQL", description: "Banco de dados relacional popular" },
       { name: "REST APIs", description: "Integração e comunicação entre sistemas" },

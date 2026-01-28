@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Exposoft Alcina - 39ª Edição",
     description: "Site desenvolvido para apresentação dos trabalhos de conclusão de curso (TCC) de T.I da EME Professora Alcina Dantas Feijão. Plataforma para exibir projetos dos alunos do 3º ano, história da exposição e edições anteriores.",
-    tags: ["React", "Tailwind", "Next.js"],
+    tags: ["HTML", "CSS", "JavaScript"],
     status: "Publicado",
     image: "/website/exposoft_alcina.png",
     link: "https://exposoftalcina.com",
@@ -170,8 +170,8 @@ export function Projects() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20, height: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
+                  transition={{
+                    duration: 0.5,
                     delay: index >= 2 ? (index - 2) * 0.1 : 0,
                     ease: [0.4, 0, 0.2, 1]
                   }}
@@ -225,8 +225,8 @@ export function Projects() {
                           </Badge>
                         ))}
                         {project.tags.length > 3 && (
-                          <Badge 
-                            variant="outline" 
+                          <Badge
+                            variant="outline"
                             className="text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500/10 hover:border-purple-400/50 px-1.5 py-0.5 cursor-pointer transition-all duration-200"
                             onClick={(e) => {
                               e.stopPropagation()

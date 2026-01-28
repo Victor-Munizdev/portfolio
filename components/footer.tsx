@@ -1,11 +1,10 @@
 "use client"
 
-import { Github, Linkedin, Mail, Instagram } from "lucide-react"
+import { Github, Mail, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Victor-Munizdev", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/victor-muniz-dev", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com/victor_munizdv", label: "Instagram" },
   { icon: Mail, href: "mailto:munizzvr@gmail.com", label: "Email" },
 ]

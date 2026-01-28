@@ -7,46 +7,32 @@ import { Button } from "@/components/ui/button"
 
 const experiences = [
   {
-    title: "Analista Veicular",
-    company: "Grupo Nasli",
-    location: "São Paulo, SP - Presencial",
-    period: "2024",
-    description: "Analista veicular de grandes frotas veiculares em laudos de: Desmobilização, cautelar, e entre outros laudos.",
-    achievements: [
-      "Análise de grandes frotas veiculares",
-      "Laudos de desmobilização",
-      "Laudos cautelares",
-      "Relatórios técnicos especializados"
-    ],
-    technologies: []
-  },
-  {
     title: "Desenvolvedor Freelance",
-    company: "Grupo Nasli",
-    location: "São Paulo, SP - Presencial",
-    period: "2024",
-    description: "Sistema para gerenciamento de: clientes, peças veiculares, Informações sobre cada cliente, preços de veículos FIPE e etc...",
+    company: "Caio Bartender",
+    location: "São Paulo, SP - Remoto",
+    period: "2025",
+    description: "Site desenvolvido para um bartender apresentando seu portfólio de drinks.",
     achievements: [
-      "Sistema de gestão de clientes",
-      "Controle de peças veiculares",
-      "Integração com tabela FIPE",
-      "Banco de dados de informações veiculares"
+      "Site portfólio responsivo",
+      "Apresentação de drinks e especialidades",
+      "Design atrativo para gastronomia",
+      "Otimização para dispositivos móveis"
     ],
-    technologies: ["PHP", "HTML", "CSS", "JavaScript"]
+    technologies: ["React", "Tailwind"]
   },
   {
     title: "Desenvolvedor Full-Stack",
-    company: "Hells Brindes",
+    company: "VextoTech",
     location: "São Paulo, SP - Híbrido",
-    period: "2024/2025",
-    description: "Sistema completo de gestão de logística, materiais, vendedores, financeiro para uma empresa de brindes corporativos. Aplicativo desenvolvido para as gestões acima!",
+    period: "2025",
+    description: "Site institucional completo com todas as soluções da empresa. E-commerce completo de produtos relacionados a tecnologia. IA conversacional (Chatbot). IA para desenvolvimento (Geração de códigos).",
     achievements: [
-      "Sistema completo de gestão logística",
-      "Controle de materiais e vendedores",
-      "Módulo financeiro integrado",
-      "Aplicativo mobile para gestão"
+      "Desenvolvimento de site institucional responsivo",
+      "Implementação de e-commerce completo",
+      "Integração de IA conversacional (Chatbot)",
+      "Sistema de geração automática de códigos com IA"
     ],
-    technologies: ["PHP", "HTML", "CSS", "Bootstrap", "JavaScript", "React Native"]
+    technologies: ["React", "Tailwind", "Vite"]
   },
   {
     title: "Desenvolvedor Full-Stack, Suporte, QA",
@@ -64,31 +50,45 @@ const experiences = [
   },
   {
     title: "Desenvolvedor Full-Stack",
-    company: "VextoTech",
+    company: "Hells Brindes",
     location: "São Paulo, SP - Híbrido",
-    period: "2025",
-    description: "Site institucional completo com todas as soluções da empresa. E-commerce completo de produtos relacionados a tecnologia. IA conversacional (Chatbot). IA para desenvolvimento (Geração de códigos).",
+    period: "2024/2025",
+    description: "Sistema completo de gestão de logística, materiais, vendedores, financeiro para uma empresa de brindes corporativos. Aplicativo desenvolvido para as gestões acima!",
     achievements: [
-      "Desenvolvimento de site institucional responsivo",
-      "Implementação de e-commerce completo",
-      "Integração de IA conversacional (Chatbot)",
-      "Sistema de geração automática de códigos com IA"
+      "Sistema completo de gestão logística",
+      "Controle de materiais e vendedores",
+      "Módulo financeiro integrado",
+      "Aplicativo mobile para gestão"
     ],
-    technologies: ["React", "Tailwind", "Vite"]
+    technologies: ["PHP", "HTML", "CSS", "Bootstrap", "JavaScript", "React Native"]
   },
   {
     title: "Desenvolvedor Freelance",
-    company: "Caio Bartender",
-    location: "São Paulo, SP - Remoto",
-    period: "2025",
-    description: "Site desenvolvido para um bartender apresentando seu portfólio de drinks.",
+    company: "Grupo Nasli",
+    location: "São Paulo, SP - Presencial",
+    period: "2024",
+    description: "Sistema para gerenciamento de: clientes, peças veiculares, Informações sobre cada cliente, preços de veículos FIPE e etc...",
     achievements: [
-      "Site portfólio responsivo",
-      "Apresentação de drinks e especialidades",
-      "Design atrativo para gastronomia",
-      "Otimização para dispositivos móveis"
+      "Sistema de gestão de clientes",
+      "Controle de peças veiculares",
+      "Integração com tabela FIPE",
+      "Banco de dados de informações veiculares"
     ],
-    technologies: ["React", "Tailwind"]
+    technologies: ["PHP", "HTML", "CSS", "JavaScript"]
+  },
+  {
+    title: "Analista Veicular",
+    company: "Grupo Nasli",
+    location: "São Paulo, SP - Presencial",
+    period: "2024",
+    description: "Analista veicular de grandes frotas veiculares em laudos de: Desmobilização, cautelar, e entre outros laudos.",
+    achievements: [
+      "Análise de grandes frotas veiculares",
+      "Laudos de desmobilização",
+      "Laudos cautelares",
+      "Relatórios técnicos especializados"
+    ],
+    technologies: []
   }
 ]
 
@@ -105,7 +105,7 @@ export function Experience() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          >
+        >
           <div className="space-y-3 md:space-y-4 text-center">
             <div className="flex items-center justify-center gap-2 md:gap-3">
               <span className="text-purple-400 text-xl md:text-2xl">✦</span>
@@ -143,70 +143,70 @@ export function Experience() {
                     initial={{ opacity: 0, x: -50, y: 20 }}
                     animate={{ opacity: 1, x: 0, y: 0 }}
                     exit={{ opacity: 0, x: -50, y: -20, height: 0 }}
-                    transition={{ 
-                      duration: 0.5, 
+                    transition={{
+                      duration: 0.5,
                       delay: index >= 2 ? (index - 2) * 0.15 : 0,
                       ease: [0.4, 0, 0.2, 1]
                     }}
                   >
-                  {/* Timeline dot */}
-                  <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
-                    <Building className="h-4 w-4 md:h-6 md:w-6 text-white" />
-                  </div>
+                    {/* Timeline dot */}
+                    <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
+                      <Building className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 space-y-4 pb-12">
-                    <div className="space-y-2">
-                      <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
-                      <div className="flex flex-wrap items-center gap-2 md:gap-4 text-purple-400">
-                        <div className="flex items-center gap-1">
-                          <Building className="h-3 w-3 md:h-4 md:w-4" />
-                          <span className="font-medium text-sm md:text-base">{exp.company}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-                          <span className="text-sm md:text-base">{exp.location}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3 md:h-4 md:w-4" />
-                          <span className="text-sm md:text-base">{exp.period}</span>
+                    {/* Content */}
+                    <div className="flex-1 space-y-4 pb-12">
+                      <div className="space-y-2">
+                        <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
+                        <div className="flex flex-wrap items-center gap-2 md:gap-4 text-purple-400">
+                          <div className="flex items-center gap-1">
+                            <Building className="h-3 w-3 md:h-4 md:w-4" />
+                            <span className="font-medium text-sm md:text-base">{exp.company}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+                            <span className="text-sm md:text-base">{exp.location}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3 md:h-4 md:w-4" />
+                            <span className="text-sm md:text-base">{exp.period}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <p className="text-white/80 leading-relaxed">{exp.description}</p>
+                      <p className="text-white/80 leading-relaxed">{exp.description}</p>
 
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-white">Principais Conquistas:</h4>
-                      <ul className="space-y-1">
-                        {exp.achievements.map((achievement, i) => (
-                          <motion.li
-                            key={i}
-                            className="flex items-start gap-2 text-white/70"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4, delay: (index * 0.2) + (i * 0.1) }}
-                            viewport={{ once: true }}
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-white">Principais Conquistas:</h4>
+                        <ul className="space-y-1">
+                          {exp.achievements.map((achievement, i) => (
+                            <motion.li
+                              key={i}
+                              className="flex items-start gap-2 text-white/70"
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: (index * 0.2) + (i * 0.1) }}
+                              viewport={{ once: true }}
+                            >
+                              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-purple-400 flex-shrink-0"></span>
+                              {achievement}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {exp.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 text-xs font-medium bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30"
                           >
-                            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-purple-400 flex-shrink-0"></span>
-                            {achievement}
-                          </motion.li>
+                            {tech}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
-
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 text-xs font-medium bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
                 ))}
               </AnimatePresence>
             </div>
