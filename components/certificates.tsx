@@ -42,6 +42,30 @@ const certificates = [
     credentialId: "FIAP-STARTUP-2025",
     link: "/certificates/Startup.pdf",
     hasDownload: true
+  },
+  {
+    title: "TCC - ExpoSoft",
+    issuer: "Escola Técnica | Ensino Médio Técnico em T.I.",
+    date: "2025",
+    description: "Certificado de conclusão do Trabalho de Conclusão de Curso (TCC) apresentado na ExpoSoft, feira de projetos do ensino médio técnico em Tecnologia da Informação.",
+    duration: "Conclusão de Curso",
+    status: "Concluído",
+    skills: ["T.I.", "Desenvolvimento de Software", "TCC"],
+    credentialId: "EXPOSOFT-TCC-2025",
+    link: "/certificates/exposoft.pdf",
+    hasDownload: true
+  },
+  {
+    title: "Tascom Academy",
+    issuer: "Tascom - Tecnologia em Saúde",
+    date: "2025",
+    description: "Curso completo de desenvolvimento de software pela Tascom Academy. Conteúdo programático: Lógica de Programação, Front-End (HTML, CSS, TypeScript, React, Figma), Back-End (HTTP/HTTPS, POO, API RESTful), Banco de Dados (SQL) e Introdução a DevOps (Docker, CI/CD e Cloud).",
+    duration: "Curso Completo",
+    status: "Concluído",
+    skills: ["React", "TypeScript", "API RESTful", "SQL", "Docker", "CI/CD", "Cloud", "POO"],
+    credentialId: "TASCOM-ACADEMY-2025",
+    link: "/certificates/tascom.pdf",
+    hasDownload: true
   }
 ]
 
