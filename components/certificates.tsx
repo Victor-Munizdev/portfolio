@@ -58,12 +58,12 @@ const certificates = [
   {
     title: "Tascom Academy",
     issuer: "Tascom - Tecnologia em Saúde",
-    date: "2025",
+    date: "2026",
     description: "Curso completo de desenvolvimento de software pela Tascom Academy. Conteúdo programático: Lógica de Programação, Front-End (HTML, CSS, TypeScript, React, Figma), Back-End (HTTP/HTTPS, POO, API RESTful), Banco de Dados (SQL) e Introdução a DevOps (Docker, CI/CD e Cloud).",
     duration: "Curso Completo",
     status: "Concluído",
     skills: ["React", "TypeScript", "API RESTful", "SQL", "Docker", "CI/CD", "Cloud", "POO"],
-    credentialId: "TASCOM-ACADEMY-2025",
+    credentialId: "TASCOM-ACADEMY-2026",
     link: "/certificates/tascom.pdf",
     hasDownload: true
   }
