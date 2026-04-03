@@ -89,7 +89,7 @@ export function Hero() {
                     <ul className="mt-3 space-y-2 text-sm leading-snug text-black/75 md:text-base">
                       <li className="flex items-start gap-2">
                         <span className="mt-0.5 shrink-0 text-[#ff5a1f]">▸</span>
-                        <span><span className="font-semibold text-[#111111]">Stack:</span> Next.js, React, Node.js, TypeScript, Prisma</span>
+                        <span><span className="font-semibold text-[#111111]">Stack:</span> Next.js, Nest.js, Node.js, TypeScript, Prisma</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="mt-0.5 shrink-0 text-[#ff5a1f]">▸</span>
