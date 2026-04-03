@@ -21,7 +21,7 @@ export function Hero() {
           transition={{ duration: 0.7 }}
         >
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4 text-[11px] uppercase tracking-[0.35em] text-black/45 md:pb-5">
-            <span>WEB e MOBILE</span>
+            <span>DESENVOLVEDOR WEB e MOBILE</span>
           </div>
 
           <div className="grid gap-8 pt-6 md:grid-cols-[1.15fr_0.85fr] md:items-center md:pt-8">
