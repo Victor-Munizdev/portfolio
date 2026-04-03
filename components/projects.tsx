@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -11,54 +11,118 @@ const projects = [
     title: "Carioca Bartender - Portfólio",
     description: "Cartão de visitas digital focado na apresentação do catálogo de drinks e serviços para eventos.",
     tags: ["React", "Tailwind", "Vercel"],
-    status: "Publicado",
     image: "/website/carioca_bartender.png",
+    previewVideo: "/website/carioca-bartender.mp4",
     link: "https://carioca-bartender.vercel.app",
   },
   {
     title: "Doce Manhã",
     description: "Site institucional para confeitaria artesanal com foco em apresentação visual e cardápio digital.",
     tags: ["React", "Tailwind", "Vercel"],
-    status: "Publicado",
     image: "/website/doce_manha.png",
+    previewVideo: "/website/doce-manha.mp4",
     link: "https://doce-manha.vercel.app",
   },
   {
     title: "Exposoft Alcina - 39ª Edição",
     description: "Plataforma oficial para exposição de projetos acadêmicos de TI com histórico e detalhes das edições.",
     tags: ["HTML", "CSS", "JavaScript"],
-    status: "Publicado",
     image: "/website/exposoft_alcina.png",
+    previewVideo: "/website/exposoft.mp4",
     link: "https://exposoftalcina.com",
   },
   {
     title: "Hells Brindes - Landing Page",
     description: "Página de conversão voltada para venda de brindes corporativos com navegação direta para orçamento.",
     tags: ["React", "Tailwind", "Vercel"],
-    status: "Publicado",
     image: "/website/hellsbrindes.png",
-    link: "https://hellsbrindes-landing.vercel.app",
-  },
-  {
-    title: "Nasli - Sistema de Relatórios",
-    description: "Ferramenta administrativa para controle de laudos, vistorias e geração de relatórios técnicos.",
-    tags: ["React", "Tailwind"],
-    status: "Publicado",
-    image: "/website/nasli.png",
-    link: "https://sistema-relatorios-gruponasli.vercel.app",
-  },
-  {
-    title: "Nexus API",
-    description: "Portal centralizado para explorar documentações, integrações e exemplos de APIs externas.",
-    tags: ["React", "Tailwind"],
-    status: "Publicado",
-    image: "/website/nexus_api.png",
-    link: "https://nexus-api-gamma.vercel.app",
+    previewVideo: "/website/hellsbrindes.mp4",
+    link: "https://hellsbrindes.com.br",
   },
 ]
 
+function ProjectPreview({
+  title,
+  image,
+  previewVideo,
+  isPlaying,
+}: {
+  title: string
+  image: string
+  previewVideo: string | null
+  isPlaying: boolean
+}) {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !previewVideo) return
+
+    const freezeOnFirstFrame = () => {
+      if (video.readyState >= 2) {
+        video.currentTime = 0.05
+        video.pause()
+      }
+    }
+
+    if (video.readyState >= 2) {
+      freezeOnFirstFrame()
+    } else {
+      video.addEventListener("loadeddata", freezeOnFirstFrame, { once: true })
+    }
+
+    return () => {
+      video.removeEventListener("loadeddata", freezeOnFirstFrame)
+    }
+  }, [previewVideo])
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !previewVideo) return
+
+    if (isPlaying) {
+      if (video.paused) {
+        video.currentTime = 0
+        void video.play().catch(() => {})
+      }
+    } else {
+      video.pause()
+      if (video.readyState >= 2) {
+        video.currentTime = 0.05
+      }
+    }
+  }, [isPlaying, previewVideo])
+
+  if (!previewVideo) {
+    return (
+      <img
+        src={image}
+        alt={title}
+        className="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-[1.03]"
+        loading="lazy"
+      />
+    )
+  }
+
+  return (
+    <div className="h-full w-full">
+      <video
+        ref={videoRef}
+        src={previewVideo}
+        poster={image}
+        className="h-full w-full object-cover object-top transition-transform duration-500"
+        muted
+        loop
+        playsInline
+        preload="auto"
+      />
+    </div>
+  )
+}
+
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const displayedProjects = showAll ? projects : projects.slice(0, 4)
 
   return (
@@ -83,22 +147,22 @@ export function Projects() {
             {displayedProjects.map((project, index) => (
               <motion.article
                 key={project.title}
-                className="overflow-hidden rounded-[2rem] border border-black/10 bg-white/78 text-[#111111] shadow-[0_20px_80px_rgba(15,23,42,0.08)]"
+                className="cursor-pointer overflow-hidden rounded-[2rem] border border-black/10 bg-white/78 text-[#111111] shadow-[0_20px_80px_rgba(15,23,42,0.08)] transition-[border-color,box-shadow] duration-300 hover:border-[#ff5a1f]/50 hover:shadow-[0_28px_90px_rgba(255,90,31,0.12)]"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
+                whileHover={{ y: -6, scale: 1.01 }}
+                onMouseEnter={() => setHoveredProject(project.title)}
+                onMouseLeave={() => setHoveredProject(null)}
               >
                 <div className="grid gap-0">
                   <div className="relative min-h-[260px] overflow-hidden border-b border-black/10 md:min-h-[300px]">
-                    <div className="absolute left-4 top-4 z-10 rounded-full bg-[#111111] px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[#f7efe8]">
-                      {project.status}
-                    </div>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-[1.03]"
-                      loading="lazy"
+                    <ProjectPreview
+                      title={project.title}
+                      image={project.image}
+                      previewVideo={project.previewVideo}
+                      isPlaying={hoveredProject === project.title}
                     />
                   </div>
 
@@ -149,7 +213,7 @@ export function Projects() {
           </AnimatePresence>
         </div>
 
-        {projects.length > 3 && (
+        {projects.length > 4 && (
           <div className="mt-8 flex justify-center">
             <Button
               onClick={() => setShowAll(!showAll)}
