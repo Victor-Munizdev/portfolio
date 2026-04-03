@@ -123,7 +123,7 @@ function ProjectPreview({
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
-  const [touchProject, setTouchProject] = useState<string | null>(null)
+  const [visibleProject, setVisibleProject] = useState<string | null>(null)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
   const displayedProjects = showAll ? projects : projects.slice(0, 4)
 
@@ -138,6 +138,38 @@ export function Projects() {
       media.removeEventListener("change", update)
     }
   }, [])
+
+  useEffect(() => {
+    if (!isTouchDevice) {
+      setVisibleProject(null)
+      return
+    }
+
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project-card]"))
+    if (!cards.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+        if (visibleEntries.length > 0) {
+          const activeTitle = visibleEntries[0].target.getAttribute("data-project-card")
+          setVisibleProject(activeTitle)
+        }
+      },
+      {
+        threshold: [0.35, 0.5, 0.7],
+      }
+    )
+
+    cards.forEach((card) => observer.observe(card))
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [isTouchDevice, displayedProjects])
 
   return (
     <section id="projects" className="px-4 py-14 md:px-6 md:py-24">
@@ -162,6 +194,7 @@ export function Projects() {
               <motion.article
                 key={project.title}
                 className="cursor-pointer overflow-hidden rounded-[2rem] border border-black/10 bg-white/78 text-[#111111] shadow-[0_20px_80px_rgba(15,23,42,0.08)] transition-[border-color,box-shadow] duration-300 hover:border-[#ff5a1f]/50 hover:shadow-[0_28px_90px_rgba(255,90,31,0.12)]"
+                data-project-card={project.title}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -24 }}
@@ -173,10 +206,6 @@ export function Projects() {
                 onMouseLeave={() => {
                   if (!isTouchDevice) setHoveredProject(null)
                 }}
-                onClick={() => {
-                  if (!isTouchDevice) return
-                  setTouchProject((current) => (current === project.title ? null : project.title))
-                }}
               >
                 <div className="grid gap-0">
                   <div className="relative min-h-[260px] overflow-hidden border-b border-black/10 md:min-h-[300px]">
@@ -184,7 +213,7 @@ export function Projects() {
                       title={project.title}
                       image={project.image}
                       previewVideo={project.previewVideo}
-                      isPlaying={isTouchDevice ? touchProject === project.title : hoveredProject === project.title}
+                      isPlaying={isTouchDevice ? visibleProject === project.title : hoveredProject === project.title}
                     />
                   </div>
 
