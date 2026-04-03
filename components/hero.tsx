@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowDownRight, ArrowUpRight, Award, Briefcase, Code } from "lucide-react"
 
 const stats = [
-  { icon: Code, value: "12+", label: "Projetos lançados" },
-  { icon: Briefcase, value: "3+", label: "Anos criando produtos" },
-  { icon: Award, value: "5", label: "Certificações e formações" },
+  { icon: Code, value: "12+", label: "Projetos reais lançados" },
+  { icon: Briefcase, value: "3+", label: "Anos desenvolvendo produtos reais" },
+  { icon: Award, value: "5+", label: "Sistemas e MVPs entregues" },
 ]
 
 export function Hero() {
@@ -28,19 +28,17 @@ export function Hero() {
             <div className="space-y-6 md:space-y-8">
               <div className="space-y-4">
                 <p className="text-xs uppercase tracking-[0.4em] text-[#ff5a1f]">Victor Muniz</p>
-                <h1 className="max-w-4xl text-[clamp(3rem,8vw,7.6rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-[#111111]">
-                  Full-stack
+                <h1 className="max-w-4xl text-[clamp(2.4rem,6vw,6rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-[#111111]">
+                  Full-stack que
                   <br />
-                  com impacto
+                  transforma ideias
                   <br />
-                  visual.
+                  em produtos reais.
                 </h1>
               </div>
 
               <p className="max-w-2xl text-base leading-relaxed text-black/62 md:text-xl">
-                Eu crio experi&ecirc;ncias digitais com cara de produto premium:
-                interfaces r&aacute;pidas, anima&ccedil;&otilde;es com presen&ccedil;a, sites e tamb&eacute;m apps
-                que fazem a marca parecer maior no primeiro scroll.
+                Desenvolvo interfaces r&aacute;pidas e sistemas completos com padr&atilde;o de produto real &mdash; do front ao backend.
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -58,7 +56,7 @@ export function Hero() {
                   className="rounded-full border-black/15 bg-transparent px-6 text-[#111111] hover:bg-black hover:text-[#f7efe8]"
                   onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
-                  Let's talk
+                  Vamos conversar
                   <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -88,9 +86,20 @@ export function Hero() {
                 <div className="grid gap-4 md:grid-cols-[1.08fr_0.92fr] md:items-end">
                   <div className="max-w-[22rem] rounded-[1.7rem] border border-black/10 bg-white/68 p-5 shadow-[0_16px_45px_rgba(255,255,255,0.24)] backdrop-blur-md">
                     <p className="text-xs uppercase tracking-[0.3em] text-black/45">Perfil</p>
-                    <p className="mt-3 text-lg leading-[1.18] text-black/80 md:text-[1.75rem]">
-                      Sites, landing pages, dashboards e experi&ecirc;ncias front-end com acabamento forte.
-                    </p>
+                    <ul className="mt-3 space-y-2 text-sm leading-snug text-black/75 md:text-base">
+                      <li className="flex items-start gap-2">
+                        <span className="mt-0.5 shrink-0 text-[#ff5a1f]">▸</span>
+                        <span><span className="font-semibold text-[#111111]">Stack:</span> Next.js, React, Node.js, TypeScript, Prisma</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="mt-0.5 shrink-0 text-[#ff5a1f]">▸</span>
+                        <span><span className="font-semibold text-[#111111]">3+ anos</span> desenvolvendo produtos reais do zero</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="mt-0.5 shrink-0 text-[#ff5a1f]">▸</span>
+                        <span><span className="font-semibold text-[#111111]">Foco:</span> SaaS, sistemas internos e interfaces de produto</span>
+                      </li>
+                    </ul>
                   </div>
 
                   <div className="min-h-[220px] rounded-[1.7rem] bg-[#111111] p-5 text-white shadow-[0_24px_60px_rgba(17,17,17,0.22)] md:p-6">

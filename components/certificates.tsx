@@ -11,7 +11,7 @@ const certificates = [
     title: "LGPD - Lei Geral de Proteção de Dados",
     issuer: "Sebrae",
     date: "2025",
-    description: "Curso completo sobre a Lei Geral de Proteção de Dados, compliance e boas práticas para tratamento de dados pessoais.",
+    description: "Compliance e boas práticas para tratamento de dados pessoais conforme a Lei Geral de Proteção de Dados.",
     duration: "2 horas",
     status: "Concluído",
     skills: ["LGPD", "Proteção de Dados", "Compliance"],
@@ -23,7 +23,7 @@ const certificates = [
     title: "AI-900",
     issuer: "Senai",
     date: "2025",
-    description: "Aprendendo a utilizar a plataforma da azure e sabendo diferenciar tipos de Inteligências Artificiais",
+    description: "Fundamentos de Cloud Computing e Inteligência Artificial na plataforma Microsoft Azure.",
     duration: "40 horas",
     status: "Concluído",
     skills: ["Azure", "IA", "Cloud Computing"],
@@ -35,7 +35,7 @@ const certificates = [
     title: "Startups for students",
     issuer: "FIAP | Prefeitura de São Caetano do sul",
     date: "2025",
-    description: "Criação de uma startup com o intuito de ajudar estudantes a se tornarem empreendedores",
+    description: "Metodologias de empreendedorismo e desenvolvimento de modelos de negócio para startups.",
     duration: "10 horas",
     status: "Concluído",
     skills: ["Empreendedorismo", "Startup", "Business"],
@@ -47,7 +47,7 @@ const certificates = [
     title: "TCC - ExpoSoft",
     issuer: "Escola Técnica | Ensino Médio Técnico em T.I.",
     date: "2025",
-    description: "Certificado de conclusão do Trabalho de Conclusão de Curso (TCC) apresentado na ExpoSoft, feira de projetos do ensino médio técnico em Tecnologia da Informação.",
+    description: "Desenvolvimento de software e arquitetura de sistemas para a feira técnica ExpoSoft.",
     duration: "Conclusão de Curso",
     status: "Concluído",
     skills: ["T.I.", "Desenvolvimento de Software", "TCC"],
@@ -59,13 +59,21 @@ const certificates = [
     title: "Tascom Academy",
     issuer: "Tascom - Tecnologia em Saúde",
     date: "2026",
-    description: "Curso completo de desenvolvimento de software pela Tascom Academy. Conteúdo programático: Lógica de Programação, Front-End (HTML, CSS, TypeScript, React, Figma), Back-End (HTTP/HTTPS, POO, API RESTful), Banco de Dados (SQL) e Introdução a DevOps (Docker, CI/CD e Cloud).",
+    description: (
+      <ul className="space-y-1">
+        <li>• Frontend: React, TypeScript, Figma</li>
+        <li>• Backend: Node.js, APIs RESTful, SQL</li>
+        <li>• DevOps: Docker, CI/CD, Cloud</li>
+        <li>• Conceitos: Lógica, POO, HTTP/HTTPS</li>
+      </ul>
+    ),
     duration: "Curso Completo",
-    status: "Concluído",
+    status: null,
     skills: ["React", "TypeScript", "API RESTful", "SQL", "Docker", "CI/CD", "Cloud", "POO"],
     credentialId: "TASCOM-ACADEMY-2026",
     link: "/certificates/tascom.pdf",
-    hasDownload: true
+    hasDownload: true,
+    featured: true
   }
 ]
 
@@ -98,9 +106,9 @@ export function Certificates() {
               <span className="text-[#ff5a1f] text-2xl">✦</span>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-[#111111]">Certificações</h2>
             </div>
-            <p className="text-xl text-black/58">Minha jornada de aprendizado</p>
+            <p className="text-xl text-black/58 font-medium">Formação e Especializações</p>
             <p className="text-base text-black/58 max-w-2xl mx-auto text-pretty">
-              Compromisso contínuo com o desenvolvimento profissional e atualização de conhecimentos.
+              Compromisso contínuo com o desenvolvimento técnico e atualização de conhecimentos em tecnologias de ponta.
             </p>
           </div>
 
@@ -108,7 +116,7 @@ export function Certificates() {
             {certificates.map((cert, index) => (
               <Card
                 key={index}
-                className="group overflow-hidden rounded-[1.8rem] border-black/10 bg-white/65 py-0 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#ff5a1f]/40"
+                className="group overflow-hidden rounded-[1.8rem] border-black/10 bg-white/65 py-0 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#ff5a1f]/40 hover:shadow-[0_20px_50px_rgba(255,90,31,0.12)]"
               >
                 <div className="p-6 space-y-4">
                   <div className="flex items-start justify-between">
@@ -118,6 +126,11 @@ export function Certificates() {
                         <h3 className="text-xl font-semibold text-[#111111] transition-colors">
                           {cert.title}
                         </h3>
+                        {(cert as any).featured && (
+                          <Badge className="bg-[#ff5a1f] text-white hover:bg-[#ff5a1f] border-none px-2 text-[10px] uppercase tracking-tighter">
+                            Destaque
+                          </Badge>
+                        )}
                       </div>
                       <p className="font-medium text-[#ff5a1f]">{cert.issuer}</p>
                     </div>
@@ -140,23 +153,28 @@ export function Certificates() {
                   <div className="space-y-3 border-t border-black/10 pt-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Badge variant="secondary" className="border-0 bg-[#111111] text-xs text-[#f7efe8]">
-                          {cert.status}
-                        </Badge>
+                        {cert.status ? (
+                          <Badge variant="secondary" className="border-0 bg-[#111111] text-xs text-[#f7efe8]">
+                            {cert.status}
+                          </Badge>
+                        ) : (
+                          <Badge variant="secondary" className="border-0 bg-[#ff5a1f] text-white text-xs">
+                            {cert.duration}
+                          </Badge>
+                        )}
                         <span className="text-xs text-black/45 font-mono">
-                          {cert.duration}
+                          {cert.status ? cert.duration : "2026"}
                         </span>
                       </div>
                       <span className="text-xs text-black/45 font-mono">
-                        {cert.date}
+                        {cert.status ? cert.date : ""}
                       </span>
                     </div>
 
                     <div className="flex gap-2">
                       <Button
                         size="sm"
-                        variant="outline"
-                        className="flex-1 rounded-full border-black/15 bg-transparent text-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-300"
+                        className="flex-1 rounded-full bg-[#111111] text-[#f7efe8] hover:bg-[#222222] transition-all duration-300"
                         onClick={() => setSelectedCert(cert)}
                       >
                         <Eye className="h-3 w-3 mr-1" />
@@ -204,8 +222,7 @@ export function Certificates() {
               <div className="flex flex-wrap gap-2">
                 <Button
                   size="sm"
-                  variant="outline"
-                  className="rounded-full border-black/15 bg-white/70 text-[#111111] hover:bg-[#111111] hover:text-white"
+                  className="rounded-full bg-[#111111] text-[#f7efe8] hover:bg-[#222222]"
                   asChild
                 >
                   <a href={selectedCert.link} target="_blank" rel="noopener noreferrer">

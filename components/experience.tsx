@@ -11,84 +11,84 @@ const experiences = [
     company: "Caio Bartender",
     location: "São Paulo, SP - Remoto",
     period: "2025",
-    description: "Site desenvolvido para um bartender apresentando seu portfólio de drinks.",
+    description: "Desenvolvimento de site responsivo para apresentação de serviços de bartender, com foco em experiência mobile e valorização visual do produto.",
     achievements: [
-      "Site portfólio responsivo",
-      "Apresentação de drinks e especialidades",
-      "Design atrativo para gastronomia",
-      "Otimização para dispositivos móveis"
+      "Interface otimizada para navegação fluida em dispositivos móveis",
+      "Estrutura planejada para facilitar a conversão de leads e apresentação de serviços",
+      "Design visual estratégico alinhado ao nicho gastronômico premium",
+      "Performance otimizada para carregamento imediato, reduzindo a taxa de rejeição"
     ],
-    technologies: ["React", "Tailwind"]
+    technologies: ["React", "Tailwind", "Framer Motion"]
   },
   {
     title: "Desenvolvedor Full-Stack",
     company: "VextoTech",
     location: "São Paulo, SP - Híbrido",
     period: "2025",
-    description: "Site institucional completo com todas as soluções da empresa. E-commerce completo de produtos relacionados a tecnologia. IA conversacional (Chatbot). IA para desenvolvimento (Geração de códigos).",
+    description: "Liderança técnica no desenvolvimento de um ecossistema digital robusto, incluindo site institucional de alta performance e e-commerce focado em conversão.",
     achievements: [
-      "Desenvolvimento de site institucional responsivo",
-      "Implementação de e-commerce completo",
-      "Integração de IA conversacional (Chatbot)",
-      "Sistema de geração automática de códigos com IA"
+      "Implementação de e-commerce escalável com fluxo de checkout otimizado",
+      "Integração de IA conversacional (Chatbot) para automação de atendimento e suporte",
+      "Desenvolvimento de sistema de geração de código via IA para otimização de workflow interno",
+      "Arquitetura front-end modular focada em performance e reutilização de componentes"
     ],
-    technologies: ["React", "Tailwind", "Vite"]
+    technologies: ["React", "Tailwind", "Vite", "OpenAI API"]
   },
   {
     title: "Desenvolvedor Full-Stack, Suporte, QA",
     company: "Grupo Nasli",
     location: "São Paulo, SP - Híbrido",
     period: "2025",
-    description: "Sistema completo para gerenciamento de vistorias veiculares, relatórios detalhes com gráficos e controle multi-usuários. Site de apresentação do sistema de relatórios detalhado acima.",
+    description: "Desenvolvimento de sistema crítico para gestão de vistorias veiculares, focado em automação de relatórios detalhados e análise de dados complexos.",
     achievements: [
-      "Sistema de gestão de vistorias veiculares",
-      "Relatórios detalhados com gráficos",
-      "Controle multi-usuários",
-      "Site institucional do sistema"
+      "Criação de dashboards dinâmicos com gráficos para análise técnica em tempo real",
+      "Implementação de controle de usuários com diferentes níveis de permissão e segurança de dados",
+      "Otimização de processos administrativos através de automação em PHP e JavaScript",
+      "Execução de testes de qualidade (QA) para garantir estabilidade em fluxos de alta demanda"
     ],
-    technologies: ["PHP", "HTML", "Bootstrap", "CSS", "JavaScript", "React", "Tailwind"]
+    technologies: ["PHP", "JavaScript", "React", "Tailwind", "SQL"]
   },
   {
     title: "Desenvolvedor Full-Stack",
     company: "Hells Brindes",
     location: "São Paulo, SP - Híbrido",
     period: "2024/2025",
-    description: "Sistema completo de gestão de logística, materiais, vendedores, financeiro para uma empresa de brindes corporativos. Aplicativo desenvolvido para as gestões acima!",
+    description: "Arquitetura e desenvolvimento de sistema ERP personalizado para gestão logística, financeira e de vendas para brindes corporativos.",
     achievements: [
-      "Sistema completo de gestão logística",
-      "Controle de materiais e vendedores",
-      "Módulo financeiro integrado",
-      "Aplicativo mobile para gestão"
+      "Desenvolvimento de aplicativo mobile (React Native) para gestão de campo e força de vendas",
+      "Implementação de módulo logístico para controle preciso de estoque e fluxo de materiais",
+      "Estruturação de sistema financeiro integrado para controle de comissões e faturamento",
+      "Interface administrativa focada em produtividade e experiência do usuário interno"
     ],
-    technologies: ["PHP", "HTML", "CSS", "Bootstrap", "JavaScript", "React Native"]
+    technologies: ["PHP", "React Native", "JavaScript", "SQL", "Bootstrap"]
   },
   {
     title: "Desenvolvedor Freelance",
     company: "Grupo Nasli",
     location: "São Paulo, SP - Presencial",
     period: "2024",
-    description: "Sistema para gerenciamento de: clientes, peças veiculares, Informações sobre cada cliente, preços de veículos FIPE e etc...",
+    description: "Sistema de gestão veicular focado em centralização de dados críticos e integração com serviços externos para precisão de mercado.",
     achievements: [
-      "Sistema de gestão de clientes",
-      "Controle de peças veiculares",
-      "Integração com tabela FIPE",
-      "Banco de dados de informações veiculares"
+      "Integração com API da Tabela FIPE para atualização automática de preços de veículos",
+      "Desenvolvimento de banco de dados centralizado para gestão eficiente de peças e clientes",
+      "Redução no tempo de consulta técnica através de interface administrativa otimizada",
+      "Implementação de fluxos de busca avançada para peças e especificações técnicas"
     ],
-    technologies: ["PHP", "HTML", "CSS", "JavaScript"]
+    technologies: ["PHP", "HTML5", "CSS3", "JavaScript", "SQL"]
   },
   {
     title: "Analista Veicular",
     company: "Grupo Nasli",
     location: "São Paulo, SP - Presencial",
     period: "2024",
-    description: "Analista veicular de grandes frotas veiculares em laudos de: Desmobilização, cautelar, e entre outros laudos.",
+    description: "Análise técnica especializada de grandes frotas, focada em conformidade técnica e emissão de laudos de alta precisão.",
     achievements: [
-      "Análise de grandes frotas veiculares",
-      "Laudos de desmobilização",
-      "Laudos cautelares",
-      "Relatórios técnicos especializados"
+      "Emissão de laudos técnicos especializados com foco em precisão e conformidade legal",
+      "Gestão de fluxo de análise técnica para volumes expressivos de veículos (frotas)",
+      "Otimização da estrutura de relatórios técnicos para facilitar tomadas de decisão gerenciais",
+      "Garantia de integridade e qualidade em processos de desmobilização e cautelar"
     ],
-    technologies: []
+    technologies: ["Análise Técnica", "Compliance", "Relatórios Estratégicos"]
   }
 ]
 

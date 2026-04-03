@@ -101,8 +101,11 @@ export function Footer() {
             })}
           </div>
 
-          <div className="mt-6 border-t border-black/10 pt-4 text-sm text-black/45">
-            © 2026 Victor Muniz. Todos os direitos reservados.
+          <div className="mt-6 flex flex-col gap-4 border-t border-black/10 pt-4 md:flex-row md:items-center md:justify-between ">
+            <p className="text-sm text-black/65 font-medium">Desenvolvedor Full Stack focado em performance e experi&ecirc;ncia do usu&aacute;rio.</p>
+            <div className="text-sm text-black/45">
+              © 2026 Victor Muniz. Todos os direitos reservados.
+            </div>
           </div>
         </div>
       </div>

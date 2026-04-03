@@ -9,60 +9,61 @@ const skillCategories = [
     icon: Code,
     title: "Frontend",
     skills: [
-      { name: "React", description: "Biblioteca para interfaces de usuário" },
-      { name: "TypeScript", description: "Programação tipada para maior confiabilidade" },
-      { name: "Tailwind CSS", description: "Estilização utilitária e responsiva" },
-      { name: "HTML5 & CSS3", description: "Fundamentos web modernos" },
-      { name: "JavaScript", description: "Programação avançada e assíncrona" },
+      { name: "React", description: "Interfaces modernas com foco em performance e experiência do usuário" },
+      { name: "TypeScript", description: "Aplicações com tipagem forte para maior escalabilidade e manutenção" },
+      { name: "Tailwind CSS", description: "Estilização rápida e consistente com foco em design responsivo e UI moderna" },
+      { name: "HTML5 & CSS3", description: "Estruturação semântica e construção de layouts performáticos e acessíveis" },
+      { name: "JavaScript", description: "Lógica avançada e manipulação assíncrona para aplicações dinâmicas e interativas" },
     ],
   },
   {
     icon: Server,
     title: "Backend",
     skills: [
-      { name: "Nest.js", description: "Framework Node.js para aplicações escaláveis" },
-      { name: "PHP", description: "Linguagem server-side versátil" },
-      { name: "REST APIs", description: "Integração e comunicação entre sistemas" },
-      { name: "PDO", description: "Extensão PHP para acesso a bancos" },
+      { name: "Nest.js", description: "APIs escaláveis com arquitetura modular e foco em performance" },
+      { name: "PHP", description: "Sistemas server-side robustos com foco em segurança e performance" },
+      { name: "REST APIs", description: "Integração entre sistemas com alta confiabilidade e performance" },
+      { name: "PDO", description: "Abstração de banco de dados com segurança e controle total de queries" },
     ],
   },
   {
     icon: Database,
     title: "Banco de Dados",
     skills: [
-      { name: "MySQL", description: "Banco de dados relacional popular para aplicações web" },
-      { name: "PostgreSQL", description: "Banco de dados relacional robusto para sistemas escaláveis" },
+      { name: "MySQL", description: "Modelagem e gerenciamento de dados para aplicações de alta demanda" },
+      { name: "PostgreSQL", description: "Estruturação de bancos robustos com foco em integridade e escalabilidade" },
+      { name: "Queries & Performance", description: "Otimização de queries e performance para sistemas de alta demanda" },
     ],
   },
   {
     icon: Briefcase,
     title: "Ferramentas",
     skills: [
-      { name: "Git & GitHub", description: "Controle de versão e colaboração" },
-      { name: "Docker", description: "Containerização de aplicações para ambientes consistentes e escaláveis" },
-      { name: "Figma", description: "Design e prototipagem de interfaces" },
-      { name: "VS Code", description: "Ambiente de desenvolvimento otimizado" },
-      { name: "Postman", description: "Teste e documentação de APIs" },
+      { name: "Git & GitHub", description: "Versionamento de código e colaboração eficiente em projetos escaláveis" },
+      { name: "Docker", description: "Garantir ambientes consistentes entre desenvolvimento e produção" },
+      { name: "Figma", description: "Criação e prototipação de interfaces de alta fidelidade com foco em UX" },
+      { name: "Dev & Quality", description: "Ambiente de desenvolvimento otimizado com foco em debugging e qualidade de software" },
+      { name: "Postman", description: "Teste e validação rigorosa de APIs para uma integração segura e eficiente" },
     ],
   },
   {
     icon: Cloud,
     title: "Cloud & Infraestrutura",
     skills: [
-      { name: "Vercel", description: "Deploy moderno com foco em performance e experiência front-end" },
-      { name: "Hostinger", description: "Hospedagem versátil para sites, sistemas e páginas institucionais" },
-      { name: "Netlify", description: "Plataforma de deploy para aplicações estáticas e JAMstack" },
-      { name: "Supabase", description: "Backend cloud com banco, autenticação e serviços para aplicações modernas" },
+      { name: "Vercel", description: "Deploy otimizado para aplicações front-end com foco em performance extrema" },
+      { name: "Supabase & Auth", description: "Backend as a Service com autenticação segura e banco de dados integrado" },
+      { name: "Netlify", description: "Publicação de aplicações JAMstack com foco em velocidade de carregamento" },
+      { name: "Infra & DevOps", description: "Deploy e configuração de ambientes escaláveis e seguros em produção" },
     ],
   },
   {
     icon: PlugZap,
-    title: "APIs",
+    title: "APIs & Integrações",
     skills: [
-      { name: "Google Cloud APIs", description: "Integração com serviços e APIs do ecossistema Google Cloud" },
-      { name: "Stripe", description: "Integração para pagamentos online, checkout e cobranças recorrentes" },
-      { name: "Abacate Pay", description: "Gateway de pagamentos para cobranças e fluxos financeiros digitais" },
-      { name: "OpenAI API", description: "Integração de IA para chat, geração de texto e automações inteligentes" },
+      { name: "Stripe & Pagamentos", description: "Implementação de sistemas de cobrança, pagamentos online e gateways nacionais" },
+      { name: "OpenAI API", description: "Implementação de inteligência artificial para automação de processos e chats inteligentes" },
+      { name: "Google Cloud", description: "Integração estratégica com serviços e APIs avançadas do ecossistema Google" },
+      { name: "Product Focus", description: "Construção de soluções com foco em conversão, automação e inteligência artificial" },
     ],
   },
 ]
@@ -97,7 +98,7 @@ export function Skills() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            O que eu domino para construir experi&ecirc;ncias fortes.
+            Tecnologias que utilizo para construir produtos reais.
           </motion.h2>
         </div>
 

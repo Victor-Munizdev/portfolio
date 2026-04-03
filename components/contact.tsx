@@ -37,16 +37,20 @@ export const Contact = () => {
             transition={{ duration: 0.55 }}
             viewport={{ once: true }}
           >
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#111111]/5 px-3 py-1 text-xs font-medium text-[#111111]">
+              <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+              Dispon&iacute;vel para novos projetos &bull; Respondo em at&eacute; 24h
+            </div>
             <p className="text-xs uppercase tracking-[0.4em] text-[#ff5a1f]">Contact</p>
             <h2 className="mt-4 text-[clamp(2.8rem,7vw,5.5rem)] font-semibold leading-[0.94] tracking-[-0.06em]">
-              Vamos colocar
+              Vamos conversar 
               <br />
-              sua ideia em
+              sobre o seu
               <br />
-              evidência.
+              projeto.
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-black/60 md:text-lg">
-              Se voc&ecirc; quer um site com mais presen&ccedil;a visual, melhor narrativa e acabamento premium, me chama.
+              Construindo produtos digitais com foco em performance, convers&atilde;o e experi&ecirc;ncia.
             </p>
           </motion.div>
 
