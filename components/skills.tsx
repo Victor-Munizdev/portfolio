@@ -39,6 +39,7 @@ const skillCategories = [
     title: "Ferramentas",
     skills: [
       { name: "Git & GitHub", description: "Controle de versão e colaboração" },
+      { name: "Docker", description: "Containerização de aplicações para ambientes consistentes e escaláveis" },
       { name: "Figma", description: "Design e prototipagem de interfaces" },
       { name: "VS Code", description: "Ambiente de desenvolvimento otimizado" },
       { name: "Postman", description: "Teste e documentação de APIs" },
@@ -46,11 +47,12 @@ const skillCategories = [
   },
   {
     icon: Cloud,
-    title: "Hosting",
+    title: "Cloud & Infraestrutura",
     skills: [
       { name: "Vercel", description: "Deploy moderno com foco em performance e experiência front-end" },
       { name: "Hostinger", description: "Hospedagem versátil para sites, sistemas e páginas institucionais" },
       { name: "Netlify", description: "Plataforma de deploy para aplicações estáticas e JAMstack" },
+      { name: "Supabase", description: "Backend cloud com banco, autenticação e serviços para aplicações modernas" },
     ],
   },
   {
