@@ -8,6 +8,26 @@ import { Award, Calendar, Download, Eye, ExternalLink, X } from "lucide-react"
 
 const certificates = [
   {
+    title: "Tascom Academy",
+    issuer: "Tascom - Tecnologia em Saúde",
+    date: "2026",
+    description: (
+      <ul className="space-y-1">
+        <li>• Frontend: React, TypeScript, Figma</li>
+        <li>• Backend: Node.js, APIs RESTful, SQL</li>
+        <li>• DevOps: Docker, CI/CD, Cloud</li>
+        <li>• Conceitos: Lógica, POO, HTTP/HTTPS</li>
+      </ul>
+    ),
+    duration: "Curso Completo",
+    status: null,
+    skills: ["React", "TypeScript", "API RESTful", "SQL", "Docker", "CI/CD", "Cloud", "POO"],
+    credentialId: "TASCOM-ACADEMY-2026",
+    link: "/certificates/tascom.pdf",
+    hasDownload: true,
+    featured: true
+  },
+  {
     title: "LGPD - Lei Geral de Proteção de Dados",
     issuer: "Sebrae",
     date: "2025",
@@ -54,26 +74,6 @@ const certificates = [
     credentialId: "EXPOSOFT-TCC-2025",
     link: "/certificates/exposoft.pdf",
     hasDownload: true
-  },
-  {
-    title: "Tascom Academy",
-    issuer: "Tascom - Tecnologia em Saúde",
-    date: "2026",
-    description: (
-      <ul className="space-y-1">
-        <li>• Frontend: React, TypeScript, Figma</li>
-        <li>• Backend: Node.js, APIs RESTful, SQL</li>
-        <li>• DevOps: Docker, CI/CD, Cloud</li>
-        <li>• Conceitos: Lógica, POO, HTTP/HTTPS</li>
-      </ul>
-    ),
-    duration: "Curso Completo",
-    status: null,
-    skills: ["React", "TypeScript", "API RESTful", "SQL", "Docker", "CI/CD", "Cloud", "POO"],
-    credentialId: "TASCOM-ACADEMY-2026",
-    link: "/certificates/tascom.pdf",
-    hasDownload: true,
-    featured: true
   }
 ]
 

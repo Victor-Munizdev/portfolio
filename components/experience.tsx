@@ -2,10 +2,26 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Calendar, MapPin, Building } from "lucide-react"
+import { Calendar, MapPin, Building, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const experiences = [
+  {
+    title: "Desenvolvedor Full-Stack | QA | Suporte",
+    company: "Grupo Nasli",
+    location: "São Paulo, SP - Híbrido",
+    period: "2024 - Presente",
+    description: "Atuação estratégica no desenvolvimento e manutenção de ecossistemas digitais críticos, integrando inovação técnica com estabilidade operacional.",
+    achievements: [
+      "Desenvolvimento de sistema crítico para gestão de vistorias veiculares com dashboards em tempo real",
+      "Implementação de controle de usuários com níveis de permissão e segurança avançada",
+      "Integração com API da Tabela FIPE para automação de precificação técnica",
+      "Otimização de fluxos administrativos através de automação em PHP e JavaScript",
+      "Desenvolvimento de banco de dados centralizado para gestão eficiente de ativos e clientes",
+      "Execução de testes de qualidade (QA) para garantir estabilidade em sistemas de alta demanda"
+    ],
+    technologies: ["PHP", "JavaScript", "React", "Tailwind", "SQL", "HTML5", "CSS3"]
+  },
   {
     title: "Desenvolvedor Freelance",
     company: "Caio Bartender",
@@ -35,20 +51,6 @@ const experiences = [
     technologies: ["React", "Tailwind", "Vite", "OpenAI API"]
   },
   {
-    title: "Desenvolvedor Full-Stack, Suporte, QA",
-    company: "Grupo Nasli",
-    location: "São Paulo, SP - Híbrido",
-    period: "2025",
-    description: "Desenvolvimento de sistema crítico para gestão de vistorias veiculares, focado em automação de relatórios detalhados e análise de dados complexos.",
-    achievements: [
-      "Criação de dashboards dinâmicos com gráficos para análise técnica em tempo real",
-      "Implementação de controle de usuários com diferentes níveis de permissão e segurança de dados",
-      "Otimização de processos administrativos através de automação em PHP e JavaScript",
-      "Execução de testes de qualidade (QA) para garantir estabilidade em fluxos de alta demanda"
-    ],
-    technologies: ["PHP", "JavaScript", "React", "Tailwind", "SQL"]
-  },
-  {
     title: "Desenvolvedor Full-Stack",
     company: "Hells Brindes",
     location: "São Paulo, SP - Híbrido",
@@ -61,20 +63,6 @@ const experiences = [
       "Interface administrativa focada em produtividade e experiência do usuário interno"
     ],
     technologies: ["PHP", "React Native", "JavaScript", "SQL", "Bootstrap"]
-  },
-  {
-    title: "Desenvolvedor Freelance",
-    company: "Grupo Nasli",
-    location: "São Paulo, SP - Presencial",
-    period: "2024",
-    description: "Sistema de gestão veicular focado em centralização de dados críticos e integração com serviços externos para precisão de mercado.",
-    achievements: [
-      "Integração com API da Tabela FIPE para atualização automática de preços de veículos",
-      "Desenvolvimento de banco de dados centralizado para gestão eficiente de peças e clientes",
-      "Redução no tempo de consulta técnica através de interface administrativa otimizada",
-      "Implementação de fluxos de busca avançada para peças e especificações técnicas"
-    ],
-    technologies: ["PHP", "HTML5", "CSS3", "JavaScript", "SQL"]
   },
   {
     title: "Analista Veicular",
@@ -151,7 +139,7 @@ export function Experience() {
                   >
                     {/* Timeline dot */}
                     <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-[#111111] shadow-lg">
-                      <Building className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                      <Briefcase className="h-4 w-4 md:h-6 md:w-6 text-white" />
                     </div>
 
                     {/* Content */}
