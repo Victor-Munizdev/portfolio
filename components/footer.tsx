@@ -10,6 +10,12 @@ const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/munizvr/", label: "LinkedIn" },
 ]
 
+const footerHighlights = [
+  "Landing pages e sites institucionais",
+  "Dashboards e sistemas internos",
+  "Apps, integrações e experiências completas",
+]
+
 export function Footer() {
   return (
     <footer className="px-4 pb-4 pt-6 md:px-6 md:pb-6 md:pt-10">
@@ -55,11 +61,28 @@ export function Footer() {
             </div>
             <div className="min-w-0 xl:min-w-[16rem]">
               <p className="text-xs uppercase tracking-[0.35em] text-black/40">Base</p>
-              <p className="mt-4 text-lg font-medium xl:text-[1.65rem]">Sao Paulo, Brasil</p>
+              <p className="mt-4 text-lg font-medium xl:text-[1.65rem]">São Paulo, Brasil</p>
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 rounded-[1.6rem] border border-black/10 bg-white/55 p-4">
+            <p className="text-xs uppercase tracking-[0.35em] text-black/40">Atuação</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {footerHighlights.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-black/10 bg-[#fffaf6] px-3 py-2 text-[0.78rem] uppercase tracking-[0.14em] text-black/62"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-black/52">
+              Aberto para projetos freelance, evolução de produto, integrações e experiências digitais com mais qualidade de entrega.
+            </p>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
             {socialLinks.map((social) => {
               const Icon = social.icon
               return (
@@ -78,7 +101,7 @@ export function Footer() {
             })}
           </div>
 
-          <div className="mt-8 border-t border-black/10 pt-5 text-sm text-black/45">
+          <div className="mt-6 border-t border-black/10 pt-4 text-sm text-black/45">
             © 2026 Victor Muniz. Todos os direitos reservados.
           </div>
         </div>

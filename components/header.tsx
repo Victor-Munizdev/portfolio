@@ -80,19 +80,19 @@ export function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] bg-[#0f0604]/72 p-3 backdrop-blur-md md:p-6"
+            className="fixed inset-0 z-[100] overflow-y-auto bg-[#0f0604]/72 p-3 backdrop-blur-md md:p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="mx-auto flex h-full max-w-[1440px] flex-col rounded-[2rem] bg-[#f7efe8] p-6 text-[#111111] md:p-10"
+              className="mx-auto flex min-h-[calc(100dvh-1.5rem)] max-w-[1440px] flex-col rounded-[2rem] bg-[#f7efe8] p-5 text-[#111111] md:min-h-full md:p-10"
               initial={{ y: 32, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 24, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="mb-10 flex items-center justify-between">
+              <div className="sticky top-0 z-10 -mx-5 mb-6 flex items-start justify-between bg-[#f7efe8]/96 px-5 pb-4 pt-1 backdrop-blur-sm md:static md:m-0 md:mb-10 md:bg-transparent md:px-0 md:pb-0 md:pt-0">
                 <div>
                   <p className="text-xs uppercase tracking-[0.35em] text-black/45">Navigation</p>
                   <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Explore meu trabalho</h2>
@@ -108,7 +108,7 @@ export function Header() {
                 </Button>
               </div>
 
-              <nav className="grid gap-4 md:mt-6">
+              <nav className="grid gap-3 md:mt-6 md:gap-4">
                 {menuItems.map((item, index) => (
                   <motion.button
                     key={item.href}
@@ -116,17 +116,17 @@ export function Header() {
                       setIsMenuOpen(false)
                       setTimeout(() => scrollTo(item.href), 120)
                     }}
-                    className="group flex items-center justify-between rounded-[1.5rem] border border-black/10 bg-white/55 px-5 py-5 text-left transition-colors hover:bg-[#ff5a1f] hover:text-white md:px-7 md:py-6"
+                    className="group flex items-center justify-between rounded-[1.5rem] border border-black/10 bg-white/55 px-4 py-4 text-left transition-colors hover:bg-[#ff5a1f] hover:text-white md:px-7 md:py-6"
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 12 }}
                     transition={{ delay: 0.05 * index }}
                   >
-                    <div className="flex items-center gap-4 md:gap-6">
+                    <div className="flex min-w-0 items-center gap-3 md:gap-6">
                       <span className="text-xs uppercase tracking-[0.35em] text-black/40 group-hover:text-white/70">
                         {item.number}
                       </span>
-                      <span className="text-2xl font-medium tracking-tight md:text-5xl">
+                      <span className="text-[2rem] font-medium leading-none tracking-tight md:text-5xl">
                         {item.label}
                       </span>
                     </div>
@@ -135,14 +135,14 @@ export function Header() {
                 ))}
               </nav>
 
-              <div className="mt-auto grid gap-6 pt-10 md:grid-cols-2">
+              <div className="mt-8 grid gap-5 border-t border-black/10 pt-6 md:mt-auto md:grid-cols-2 md:gap-6 md:pt-10">
                 <div>
                   <p className="text-xs uppercase tracking-[0.35em] text-black/45">Contato</p>
-                  <p className="mt-3 text-xl md:text-3xl">munizzvr@gmail.com</p>
+                  <p className="mt-2 break-all text-lg md:mt-3 md:text-3xl">munizzvr@gmail.com</p>
                 </div>
                 <div className="md:text-right">
                   <p className="text-xs uppercase tracking-[0.35em] text-black/45">Base</p>
-                  <p className="mt-3 text-xl md:text-3xl">Sao Paulo, Brasil</p>
+                  <p className="mt-2 text-lg md:mt-3 md:text-3xl">São Paulo, Brasil</p>
                 </div>
               </div>
             </motion.div>
