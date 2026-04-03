@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, Instagram } from "lucide-react"
+import { Mail, Phone, MapPin, Instagram, ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 
 const contactInfo = [
@@ -11,8 +11,8 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    label: "(11) 91409-8185",
-    href: "tel:+5511914098185",
+    label: "WhatsApp: (11) 91409-8185",
+    href: "https://wa.me/5511914098185",
   },
   {
     icon: Instagram,
@@ -24,78 +24,81 @@ const contactInfo = [
     label: "São Paulo, Brasil",
     href: null,
   },
-];
+]
 
 export const Contact = () => {
   return (
-    <section id="contact" className="px-4 py-16 md:px-6 md:py-32 bg-black">
-      <div className="max-w-6xl mx-auto">
-        <div className="space-y-12 md:space-y-16">
+    <section id="contact" className="px-4 py-10 md:px-6 md:py-14">
+      <div className="mx-auto max-w-[1440px] rounded-[2.3rem] border border-black/10 bg-[#f7efe8] px-5 py-8 text-[#111111] shadow-[0_30px_120px_rgba(15,23,42,0.12)] md:px-8 md:py-10">
+        <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:gap-10">
           <motion.div
-            className="space-y-3 md:space-y-4 text-center"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.55 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 md:gap-3">
-              <span className="text-purple-400 text-xl md:text-2xl">✦</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">Entre em Contato</h2>
-            </div>
-            <p className="text-lg md:text-xl text-white/60">Vamos Conversar</p>
-            <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto text-pretty">
-              Pronto para transformar suas ideias em realidade digital? Entre em contato por qualquer um dos canais abaixo.
+            <p className="text-xs uppercase tracking-[0.4em] text-[#ff5a1f]">Contact</p>
+            <h2 className="mt-4 text-[clamp(2.8rem,7vw,5.5rem)] font-semibold leading-[0.94] tracking-[-0.06em]">
+              Vamos colocar
+              <br />
+              sua ideia em
+              <br />
+              evidência.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-black/60 md:text-lg">
+              Se voc&ecirc; quer um site com mais presen&ccedil;a visual, melhor narrativa e acabamento premium, me chama.
             </p>
           </motion.div>
 
-          {/* Contact Info - Centered */}
-          <div className="max-w-xl mx-auto">
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">Informações de Contato</h3>
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={info.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+          <motion.div
+            className="grid gap-4 md:grid-cols-2"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={info.label}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
+              >
+                {info.href ? (
+                  <a
+                    href={info.href}
+                    target={info.href.startsWith("http") ? "_blank" : undefined}
+                    rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group flex h-full min-h-[160px] flex-col justify-between rounded-[1.8rem] border border-black/10 bg-white/65 p-5 transition-colors hover:bg-[#111111] hover:text-white"
                   >
-                    {info.href ? (
-                      <a
-                        href={info.href}
-                        target={info.href.startsWith("http") ? "_blank" : undefined}
-                        rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="flex items-center gap-4 p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-400/50 transition-all duration-300 hover:bg-white/10 group"
-                      >
-                        <div className="p-2 rounded-lg bg-purple-500/20 group-hover:bg-purple-500/30 transition-colors">
-                          <info.icon className="h-5 w-5 text-purple-400" />
-                        </div>
-                        <span className="text-sm md:text-base text-white/80 group-hover:text-purple-400 transition-colors">
-                          {info.label}
-                        </span>
-                      </a>
-                    ) : (
-                      <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                        <div className="p-2 rounded-lg bg-purple-500/20">
-                          <info.icon className="h-5 w-5 text-purple-400" />
-                        </div>
-                        <span className="text-sm md:text-base text-white/80">{info.label}</span>
+                    <div className="flex items-center justify-between">
+                      <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#111111] text-[#f7efe8] group-hover:bg-[#ff5a1f]">
+                        <info.icon className="h-5 w-5" />
                       </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+                      <ArrowUpRight className="h-5 w-5 text-black/35 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white/75" />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.35em] text-black/40 group-hover:text-white/45">Canal</p>
+                      <p className="mt-3 text-lg leading-tight md:text-2xl">{info.label}</p>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="flex h-full min-h-[160px] flex-col justify-between rounded-[1.8rem] border border-black/10 bg-white/65 p-5">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#111111] text-[#f7efe8]">
+                      <info.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.35em] text-black/40">Base</p>
+                      <p className="mt-3 text-lg leading-tight md:text-2xl">{info.label}</p>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

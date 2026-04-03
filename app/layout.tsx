@@ -4,7 +4,6 @@ import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
-import { DisableCopy } from "@/components/disable-copy"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,7 +37,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
-        <DisableCopy />
         <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
         <Analytics debug={false} />
       </body>

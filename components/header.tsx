@@ -1,235 +1,154 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Menu, X, Github, Instagram, Mail, MapPin } from "lucide-react"
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+const menuItems = [
+  { number: "01", label: "Início", href: "#home" },
+  { number: "02", label: "Skills", href: "#skills" },
+  { number: "03", label: "Experiência", href: "#experience" },
+  { number: "04", label: "Projetos", href: "#projects" },
+  { number: "05", label: "Certificados", href: "#certificates" },
+  { number: "06", label: "Contato", href: "#contact" },
+]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isClosing, setIsClosing] = useState(false)
-  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    if (isMenuOpen || isClosing) {
-      document.body.style.overflow = 'hidden'
+    const originalOverflow = document.body.style.overflow
+    const originalTouchAction = document.body.style.touchAction
+
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden"
+      document.body.style.touchAction = "none"
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = originalOverflow
+      document.body.style.touchAction = originalTouchAction
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = originalOverflow
+      document.body.style.touchAction = originalTouchAction
     }
-  }, [isMenuOpen, isClosing])
+  }, [isMenuOpen])
 
-  useEffect(() => {
-    if (isMenuOpen && !hasAnimated) {
-      const timer = setTimeout(() => {
-        setHasAnimated(true)
-      }, 1500) // Tempo suficiente para completar todas as animações
-      return () => clearTimeout(timer)
+  const scrollTo = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
     }
-  }, [isMenuOpen, hasAnimated])
-
-  const menuItems = [
-    { number: "01", label: "INITIAL", href: "#home" },
-    { number: "02", label: "HABILYTIES", href: "#skills" },
-    { number: "03", label: "EXPERIENCE", href: "#experience" },
-    { number: "04", label: "MY PROJECTS", href: "#projects" },
-    { number: "05", label: "CERTIFICATES", href: "#certificates" },
-    { number: "06", label: "CONTACTS", href: "#contact" },
-  ]
-
-  // Matrix characters
-  const matrixChars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  const getRandomChar = () => matrixChars[Math.floor(Math.random() * matrixChars.length)]
-
-  // Generate matrix columns
-  const matrixColumns = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: (i * 3.3) + "%",
-    delay: Math.random() * 8,
-    speed: Math.random() * 4 + 3,
-    chars: Array.from({ length: Math.floor(Math.random() * 20) + 15 }, () => getRandomChar()),
-  }))
+  }
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 md:px-12 md:py-6 bg-black/80 backdrop-blur-sm">
-        <div className="flex items-center gap-2 md:gap-3">
-          <span className="text-white font-bold text-sm md:text-lg">Victor Muniz</span>
-        </div>
+      <header className="site-header fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between rounded-[2rem] border border-black/10 bg-[#f7efe8]/92 px-4 py-3 shadow-[0_24px_90px_rgba(15,23,42,0.18)] backdrop-blur-xl md:px-8 md:py-5">
+          <button
+            onClick={() => scrollTo("#home")}
+            className="flex items-center gap-3 text-left"
+            aria-label="Ir para o início"
+          >
+            <img src="/logo.png" alt="Logo Victor Muniz" className="h-7 w-7 rounded-full object-cover" />
+            <span className="text-lg font-semibold tracking-tight text-[#111111] md:text-2xl">
+              Victor Muniz
+            </span>
+          </button>
 
-        <Button
-          variant="ghost"
-          size="default"
-          onClick={() => {
-            setIsMenuOpen(true)
-            setHasAnimated(false)
-          }}
-          className="text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-transparent hover:border-purple-500/30"
-        >
-          <span className="text-white mr-2 font-mono text-xs">Menu</span>
-          <Menu className="h-5 w-5" />
-        </Button>
-      </header>
-
-      {/* Full Screen Menu */}
-      {(isMenuOpen || isClosing) && (
-        <div className={`fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`}>
-          <div className="flex h-full">
-            {/* Left side - blurred background */}
-            <div className="hidden lg:block flex-1 relative overflow-hidden">
-              <div className={`absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent blur-3xl ${isClosing ? 'animate-slide-out-left' : 'animate-slide-in-left'}`} />
-            </div>
-
-            {/* Right side - menu */}
-            <div className={`w-full lg:w-[500px] backdrop-blur-md flex flex-col justify-between p-6 md:p-12 border-l border-purple-500/20 relative overflow-hidden ${isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right'}`}>
-              {/* Base gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-purple-900/80" />
-
-              {/* Matrix rain effect */}
-              {!isClosing && (
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  {matrixColumns.map((column) => (
-                    <motion.div
-                      key={column.id}
-                      className="absolute top-0 font-mono text-[10px] leading-tight"
-                      style={{
-                        left: column.x,
-                        color: "#a855f7",
-                        textShadow: "0 0 3px rgba(168, 85, 247, 0.9), 0 0 6px rgba(168, 85, 247, 0.7), 0 0 9px rgba(168, 85, 247, 0.5)",
-                      }}
-                      initial={{ y: "-100%" }}
-                      animate={{ y: "200%" }}
-                      transition={{
-                        duration: column.speed,
-                        repeat: Infinity,
-                        delay: column.delay,
-                        ease: "linear",
-                      }}
-                    >
-                      {column.chars.map((char, idx) => (
-                        <div
-                          key={idx}
-                          className="block"
-                          style={{
-                            opacity: idx === 0 ? 1 : Math.max(0.1, 1 - idx * 0.08),
-                            color: idx === 0 ? "#ec4899" : idx < 3 ? "#c084fc" : "#a855f7",
-                            textShadow: idx === 0
-                              ? "0 0 5px rgba(236, 72, 153, 1), 0 0 10px rgba(236, 72, 153, 0.8)"
-                              : "0 0 3px rgba(168, 85, 247, 0.8)",
-                          }}
-                        >
-                          {char}
-                        </div>
-                      ))}
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-
-              {/* Content with relative positioning */}
-              <div className="relative z-10 flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-8 md:mb-12">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Victor Muniz</h3>
-                    <p className="text-sm text-white/60 font-mono">Desenvolvedor Full-Stack</p>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="default"
-                    onClick={() => {
-                      setIsClosing(true)
-                      setTimeout(() => {
-                        setIsMenuOpen(false)
-                        setIsClosing(false)
-                      }, 500)
-                    }}
-                    className="text-white hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-transparent hover:border-purple-500/30"
-                  >
-                    <X className="h-5 w-5 transition-transform hover:rotate-90" />
-                  </Button>
-                </div>
-
-                {/* Navigation */}
-                <nav className="flex-1 flex flex-col justify-center gap-6 md:gap-8">
-                  {menuItems.map((item, index) => (
-                    <motion.a
-                      key={item.number}
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setIsClosing(true)
-                        setTimeout(() => {
-                          setIsMenuOpen(false)
-                          setIsClosing(false)
-                          const element = document.querySelector(item.href)
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' })
-                          }
-                        }, 500)
-                      }}
-                      className={`group flex items-center gap-4 text-white hover:text-purple-400 transition-all duration-300 hover:translate-x-2 cursor-pointer py-2 ${isClosing ? 'animate-fade-out' : ''}`}
-                      style={{ animationDelay: isClosing ? '0ms' : `${index * 100}ms` }}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <span className="text-purple-500 font-mono text-sm md:text-base min-w-[40px]">{item.number}</span>
-                      <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-sans tracking-tight border-b border-transparent group-hover:border-purple-400/50 transition-all duration-300">
-                        {item.label}
-                      </span>
-                    </motion.a>
-                  ))}
-                </nav>
-
-                {/* Footer - Social Links */}
-                <div className="mt-auto pt-8 border-t border-white/10">
-                  <div className="space-y-4">
-                    <p className="text-xs text-white/60 font-mono mb-3">Redes Sociais</p>
-                    <div className="flex flex-wrap gap-3">
-                      <motion.a
-                        href="https://github.com/Victor-Munizdev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Github className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
-                      </motion.a>
-                      <motion.a
-                        href="https://instagram.com/victor_munizdv"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Instagram className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
-                      </motion.a>
-                      <motion.a
-                        href="mailto:munizzvr@gmail.com"
-                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Mail className="h-4 w-4 text-white/60 group-hover:text-purple-400 transition-colors" />
-                      </motion.a>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs text-white/50 font-mono pt-2">
-                      <MapPin className="h-3 w-3" />
-                      <span>São Paulo, Brasil</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => scrollTo("#contact")}
+              className="hidden rounded-full bg-[#111111] px-5 text-sm text-[#f7efe8] shadow-none hover:bg-[#202020] md:inline-flex"
+            >
+              Vamos conversar
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(true)}
+              className="rounded-full border border-black/10 bg-white/80 text-[#111111] hover:bg-white"
+              aria-label="Abrir menu"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
           </div>
         </div>
-      )}
+      </header>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-[100] bg-[#0f0604]/72 p-3 backdrop-blur-md md:p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="mx-auto flex h-full max-w-[1440px] flex-col rounded-[2rem] bg-[#f7efe8] p-6 text-[#111111] md:p-10"
+              initial={{ y: 32, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 24, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="mb-10 flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-black/45">Navigation</p>
+                  <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Explore meu trabalho</h2>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="rounded-full border border-black/10 bg-white text-[#111111] hover:bg-black hover:text-white"
+                  aria-label="Fechar menu"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              <nav className="grid gap-4 md:mt-6">
+                {menuItems.map((item, index) => (
+                  <motion.button
+                    key={item.href}
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                      setTimeout(() => scrollTo(item.href), 120)
+                    }}
+                    className="group flex items-center justify-between rounded-[1.5rem] border border-black/10 bg-white/55 px-5 py-5 text-left transition-colors hover:bg-[#ff5a1f] hover:text-white md:px-7 md:py-6"
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 12 }}
+                    transition={{ delay: 0.05 * index }}
+                  >
+                    <div className="flex items-center gap-4 md:gap-6">
+                      <span className="text-xs uppercase tracking-[0.35em] text-black/40 group-hover:text-white/70">
+                        {item.number}
+                      </span>
+                      <span className="text-2xl font-medium tracking-tight md:text-5xl">
+                        {item.label}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 md:h-6 md:w-6" />
+                  </motion.button>
+                ))}
+              </nav>
+
+              <div className="mt-auto grid gap-6 pt-10 md:grid-cols-2">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-black/45">Contato</p>
+                  <p className="mt-3 text-xl md:text-3xl">munizzvr@gmail.com</p>
+                </div>
+                <div className="md:text-right">
+                  <p className="text-xs uppercase tracking-[0.35em] text-black/45">Base</p>
+                  <p className="mt-3 text-xl md:text-3xl">Sao Paulo, Brasil</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

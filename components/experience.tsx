@@ -97,8 +97,8 @@ export function Experience() {
   const displayedExperiences = showAll ? experiences : experiences.slice(0, 2)
 
   return (
-    <section id="experience" className="px-4 py-16 md:px-6 md:py-32 bg-black">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="px-4 py-14 md:px-6 md:py-20">
+      <div className="mx-auto max-w-[1440px] rounded-[2.2rem] border border-black/10 bg-[#fffaf6] px-5 py-8 text-[#111111] shadow-[0_24px_90px_rgba(15,23,42,0.1)] md:px-8 md:py-10">
         <motion.div
           className="space-y-12"
           initial={{ opacity: 0 }}
@@ -108,9 +108,9 @@ export function Experience() {
         >
           <div className="space-y-3 md:space-y-4 text-center">
             <div className="flex items-center justify-center gap-2 md:gap-3">
-              <span className="text-purple-400 text-xl md:text-2xl">✦</span>
+              <span className="text-[#ff5a1f] text-xl md:text-2xl">✦</span>
               <motion.h2
-                className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white"
+                className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-[#111111]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -120,7 +120,7 @@ export function Experience() {
               </motion.h2>
             </div>
             <motion.p
-              className="text-lg md:text-xl text-white/60"
+              className="text-lg md:text-xl text-black/58"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -132,14 +132,14 @@ export function Experience() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-purple-600"></div>
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#111111] to-[#ff5a1f]"></div>
 
             <div className="space-y-12">
               <AnimatePresence>
                 {displayedExperiences.map((exp, index) => (
                   <motion.div
                     key={index}
-                    className="relative flex gap-4 md:gap-8"
+                    className="relative flex gap-4 rounded-[1.8rem] border border-black/8 bg-white/60 p-4 md:gap-8 md:p-6"
                     initial={{ opacity: 0, x: -50, y: 20 }}
                     animate={{ opacity: 1, x: 0, y: 0 }}
                     exit={{ opacity: 0, x: -50, y: -20, height: 0 }}
@@ -150,15 +150,15 @@ export function Experience() {
                     }}
                   >
                     {/* Timeline dot */}
-                    <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
+                    <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-[#111111] shadow-lg">
                       <Building className="h-4 w-4 md:h-6 md:w-6 text-white" />
                     </div>
 
                     {/* Content */}
                     <div className="flex-1 space-y-4 pb-12">
                       <div className="space-y-2">
-                        <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
-                        <div className="flex flex-wrap items-center gap-2 md:gap-4 text-purple-400">
+                        <h3 className="text-xl md:text-2xl font-bold text-[#111111]">{exp.title}</h3>
+                        <div className="flex flex-wrap items-center gap-2 md:gap-4 text-[#ff5a1f]">
                           <div className="flex items-center gap-1">
                             <Building className="h-3 w-3 md:h-4 md:w-4" />
                             <span className="font-medium text-sm md:text-base">{exp.company}</span>
@@ -174,21 +174,21 @@ export function Experience() {
                         </div>
                       </div>
 
-                      <p className="text-white/80 leading-relaxed">{exp.description}</p>
+                      <p className="leading-relaxed text-black/72">{exp.description}</p>
 
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-white">Principais Conquistas:</h4>
+                        <h4 className="font-semibold text-[#111111]">Principais Conquistas:</h4>
                         <ul className="space-y-1">
                           {exp.achievements.map((achievement, i) => (
                             <motion.li
                               key={i}
-                              className="flex items-start gap-2 text-white/70"
+                              className="flex items-start gap-2 text-black/65"
                               initial={{ opacity: 0, x: -20 }}
                               whileInView={{ opacity: 1, x: 0 }}
                               transition={{ duration: 0.4, delay: (index * 0.2) + (i * 0.1) }}
                               viewport={{ once: true }}
                             >
-                              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-purple-400 flex-shrink-0"></span>
+                              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#ff5a1f] flex-shrink-0"></span>
                               {achievement}
                             </motion.li>
                           ))}
@@ -199,7 +199,7 @@ export function Experience() {
                         {exp.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-xs font-medium bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30"
+                            className="rounded-full border border-black/10 bg-[#111111] px-3 py-1 text-xs font-medium text-[#f7efe8]"
                           >
                             {tech}
                           </span>
@@ -216,7 +216,7 @@ export function Experience() {
             <div className="flex justify-center mt-8">
               <Button
                 onClick={() => setShowAll(!showAll)}
-                className="bg-purple-600 hover:bg-purple-700 text-white border-0 shadow-lg"
+                className="rounded-full bg-[#111111] hover:bg-[#252525] text-white border-0 shadow-lg"
               >
                 {showAll ? "Ver menos" : "Ver mais"}
               </Button>

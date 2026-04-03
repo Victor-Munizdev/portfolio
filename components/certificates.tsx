@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Award, Calendar, Download, Eye, X } from "lucide-react"
+import { Award, Calendar, Download, Eye, ExternalLink, X } from "lucide-react"
 
 const certificates = [
   {
@@ -70,31 +70,36 @@ const certificates = [
 ]
 
 export function Certificates() {
-  const [selectedCert, setSelectedCert] = useState<string | null>(null)
+  const [selectedCert, setSelectedCert] = useState<(typeof certificates)[number] | null>(null)
 
   useEffect(() => {
+    const body = document.body
+
     if (selectedCert) {
-      document.body.style.overflow = 'hidden'
+      body.style.overflow = "hidden"
+      body.classList.add("cert-modal-open")
     } else {
-      document.body.style.overflow = 'unset'
+      body.style.overflow = "unset"
+      body.classList.remove("cert-modal-open")
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      body.style.overflow = "unset"
+      body.classList.remove("cert-modal-open")
     }
   }, [selectedCert])
 
   return (
-    <section id="certificates" className="px-6 py-20 md:py-32 bg-black">
-      <div className="max-w-6xl mx-auto">
+    <section id="certificates" className="px-4 py-14 md:px-6 md:py-20">
+      <div className="mx-auto max-w-[1440px] rounded-[2.2rem] border border-black/10 bg-[#f7efe8] px-5 py-8 text-[#111111] shadow-[0_24px_90px_rgba(15,23,42,0.1)] md:px-8 md:py-10">
         <div className="space-y-12">
           <div className="space-y-4 text-center">
             <div className="flex items-center justify-center gap-3">
-              <span className="text-purple-400 text-2xl">✦</span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Certificações</h2>
+              <span className="text-[#ff5a1f] text-2xl">✦</span>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-[#111111]">Certificações</h2>
             </div>
-            <p className="text-xl text-white/60">Minha jornada de aprendizado</p>
-            <p className="text-base text-white/60 max-w-2xl mx-auto text-pretty">
+            <p className="text-xl text-black/58">Minha jornada de aprendizado</p>
+            <p className="text-base text-black/58 max-w-2xl mx-auto text-pretty">
               Compromisso contínuo com o desenvolvimento profissional e atualização de conhecimentos.
             </p>
           </div>
@@ -103,46 +108,46 @@ export function Certificates() {
             {certificates.map((cert, index) => (
               <Card
                 key={index}
-                className="group overflow-hidden bg-white/5 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300"
+                className="group overflow-hidden rounded-[1.8rem] border-black/10 bg-white/65 py-0 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#ff5a1f]/40"
               >
                 <div className="p-6 space-y-4">
                   <div className="flex items-start justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <Award className="h-5 w-5 text-purple-400" />
-                        <h3 className="text-xl font-semibold text-white group-hover:text-white transition-colors">
+                        <Award className="h-5 w-5 text-[#ff5a1f]" />
+                        <h3 className="text-xl font-semibold text-[#111111] transition-colors">
                           {cert.title}
                         </h3>
                       </div>
-                      <p className="text-purple-400 font-medium">{cert.issuer}</p>
+                      <p className="font-medium text-[#ff5a1f]">{cert.issuer}</p>
                     </div>
-                    <div className="flex items-center gap-1 text-white/60">
+                    <div className="flex items-center gap-1 text-black/55">
                       <Calendar className="h-4 w-4" />
                       <span className="text-sm">{cert.date}</span>
                     </div>
                   </div>
 
-                  <p className="text-white/80 text-sm leading-relaxed">{cert.description}</p>
+                  <p className="text-sm leading-relaxed text-black/68">{cert.description}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {cert.skills.map((skill) => (
-                      <Badge key={skill} variant="outline" className="text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500/10">
+                      <Badge key={skill} variant="outline" className="border-black/10 text-xs text-black/62">
                         {skill}
                       </Badge>
                     ))}
                   </div>
 
-                  <div className="space-y-3 pt-4 border-t border-white/10">
+                  <div className="space-y-3 border-t border-black/10 pt-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Badge variant="secondary" className="text-xs bg-green-500/20 text-green-300 border-green-500/30">
+                        <Badge variant="secondary" className="border-0 bg-[#111111] text-xs text-[#f7efe8]">
                           {cert.status}
                         </Badge>
-                        <span className="text-xs text-white/50 font-mono">
+                        <span className="text-xs text-black/45 font-mono">
                           {cert.duration}
                         </span>
                       </div>
-                      <span className="text-xs text-white/50 font-mono">
+                      <span className="text-xs text-black/45 font-mono">
                         {cert.date}
                       </span>
                     </div>
@@ -151,8 +156,8 @@ export function Certificates() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="flex-1 border-white/30 text-white bg-transparent hover:bg-purple-600 hover:text-white hover:border-purple-500 transition-all duration-300 hover:scale-105"
-                        onClick={() => setSelectedCert(cert.link)}
+                        className="flex-1 rounded-full border-black/15 bg-transparent text-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-300"
+                        onClick={() => setSelectedCert(cert)}
                       >
                         <Eye className="h-3 w-3 mr-1" />
                         Visualizar
@@ -161,7 +166,7 @@ export function Certificates() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="flex-1 border-white/30 text-white bg-transparent hover:bg-purple-600 hover:text-white hover:border-purple-500 transition-all duration-300 hover:scale-105"
+                          className="flex-1 rounded-full border-black/15 bg-transparent text-[#111111] hover:bg-[#ff5a1f] hover:border-[#ff5a1f] hover:text-white transition-all duration-300"
                           asChild
                         >
                           <a href={cert.link} download>
@@ -181,25 +186,63 @@ export function Certificates() {
 
       {/* PDF Modal */}
       {selectedCert && (
-        <div className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="relative w-full max-w-4xl h-[90vh] bg-white rounded-lg overflow-hidden border border-gray-200 shadow-2xl">
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
-              <h3 className="text-lg font-semibold text-gray-900">Certificado</h3>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setSelectedCert(null)}
-                className="text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-              >
-                <X className="h-5 w-5" />
-              </Button>
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/72 p-3 backdrop-blur-md md:p-6"
+          onClick={() => setSelectedCert(null)}
+        >
+          <div
+            className="relative flex h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7efe8] shadow-[0_30px_120px_rgba(15,23,42,0.35)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col gap-4 border-b border-black/10 bg-white/70 px-5 py-4 md:flex-row md:items-center md:justify-between md:px-6">
+              <div className="min-w-0">
+                <p className="text-xs uppercase tracking-[0.35em] text-[#ff5a1f]">{selectedCert.issuer}</p>
+                <h3 className="mt-2 truncate text-lg font-semibold text-[#111111] md:text-2xl">{selectedCert.title}</h3>
+                <p className="mt-1 text-sm text-black/50">{selectedCert.date} • {selectedCert.duration}</p>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-full border-black/15 bg-white/70 text-[#111111] hover:bg-[#111111] hover:text-white"
+                  asChild
+                >
+                  <a href={selectedCert.link} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4" />
+                    Abrir em nova aba
+                  </a>
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-full border-black/15 bg-white/70 text-[#111111] hover:bg-[#ff5a1f] hover:border-[#ff5a1f] hover:text-white"
+                  asChild
+                >
+                  <a href={selectedCert.link} download>
+                    <Download className="h-4 w-4" />
+                    Download
+                  </a>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setSelectedCert(null)}
+                  className="rounded-full border border-black/10 bg-white text-[#111111] hover:bg-black hover:text-white"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
             </div>
-            <div className="h-full bg-white">
-              <iframe
-                src={selectedCert}
-                className="w-full h-full border-0"
-                title="Certificado PDF"
-              />
+
+            <div className="flex-1 bg-[#efe5dc] p-3 md:p-4">
+              <div className="h-full overflow-hidden rounded-[1.5rem] border border-black/10 bg-white shadow-inner">
+                <iframe
+                  src={selectedCert.link}
+                  className="h-full w-full border-0"
+                  title={`Certificado ${selectedCert.title}`}
+                />
+              </div>
             </div>
           </div>
         </div>

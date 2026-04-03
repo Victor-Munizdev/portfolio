@@ -1,111 +1,87 @@
 "use client"
 
-import { Github, Mail, Instagram } from "lucide-react"
+import { Github, Instagram, Linkedin, Mail, ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Victor-Munizdev", label: "GitHub" },
   { icon: Instagram, href: "https://instagram.com/victor_munizdv", label: "Instagram" },
   { icon: Mail, href: "mailto:munizzvr@gmail.com", label: "Email" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/munizvr/", label: "LinkedIn" },
 ]
 
 export function Footer() {
   return (
-    <footer className="px-6 py-12 md:py-16 border-t border-white/10 bg-black/50">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          {/* Brand */}
-          <motion.div
-            className="space-y-4"
+    <footer className="px-4 pb-4 pt-6 md:px-6 md:pb-6 md:pt-10">
+      <div className="mx-auto grid max-w-[1440px] gap-4 md:grid-cols-[1.15fr_0.85fr]">
+        <div className="rounded-[2rem] border border-black/10 bg-[#111111] px-5 py-7 text-white shadow-[0_24px_80px_rgba(15,23,42,0.18)] md:px-8 md:py-8">
+          <p className="text-xs uppercase tracking-[0.35em] text-white/45">Victor Muniz</p>
+          <motion.h2
+            className="mt-5 max-w-[12ch] text-[clamp(2.8rem,6vw,5.8rem)] font-semibold leading-[0.92] tracking-[-0.06em]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold text-white">Victor Muniz</h3>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Desenvolvedor Full-Stack especializado em criar soluções digitais inovadoras e de alta qualidade.
-            </p>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-semibold text-white">Links Rápidos</h4>
-            <nav className="flex flex-col gap-2">
-              {[
-                { label: "Skills", href: "#skills" },
-                { label: "Experiência", href: "#experience" },
-                { label: "Projetos", href: "#projects" },
-                { label: "Certificados", href: "#certificates" },
-                { label: "Contato", href: "#contact" },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const element = document.querySelector(link.href)
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' })
-                    }
-                  }}
-                  className="text-sm text-white/60 hover:text-purple-400 transition-colors w-fit"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-semibold text-white">Redes Sociais</h4>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={social.label}
-                  >
-                    <Icon className="h-5 w-5 text-white/60 group-hover:text-purple-400 transition-colors" />
-                  </motion.a>
-                )
-              })}
-            </div>
-          </motion.div>
+            Criando produtos digitais com mais presença.
+          </motion.h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/62 md:text-lg">
+            Desenvolvimento full-stack com foco em interface, performance e uma apresentação visual que valoriza o produto.
+          </p>
         </div>
 
-        {/* Copyright */}
-        <motion.div
-          className="mt-12 pt-8 border-t border-white/10 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-sm text-white/60">
-            © {new Date().getFullYear()} Victor Muniz. Todos os direitos reservados.
-          </p>
-        </motion.div>
+        <div className="rounded-[2rem] border border-black/10 bg-[#f7efe8] px-5 py-7 text-[#111111] shadow-[0_24px_80px_rgba(15,23,42,0.1)] md:px-8 md:py-8">
+          <div className="grid gap-5 lg:grid-cols-3">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-black/40">Contato</p>
+              <a
+                href="mailto:munizzvr@gmail.com"
+                className="mt-4 inline-flex max-w-full items-center gap-2 text-lg font-medium break-all hover:text-[#ff5a1f]"
+              >
+                munizzvr@gmail.com
+                <ArrowUpRight className="h-4 w-4 shrink-0" />
+              </a>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-black/40">Telefone</p>
+              <a
+                href="https://wa.me/5511914098185"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex max-w-full items-center gap-2 text-lg font-medium hover:text-[#ff5a1f]"
+              >
+                (11) 91409-8185
+                <ArrowUpRight className="h-4 w-4 shrink-0" />
+              </a>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-black/40">Base</p>
+              <p className="mt-4 text-lg font-medium">Sao Paulo, Brasil</p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {socialLinks.map((social) => {
+              const Icon = social.icon
+              return (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm text-black/72 transition-colors hover:border-[#ff5a1f]/30 hover:text-[#ff5a1f]"
+                  whileHover={{ y: -2 }}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span>{social.label}</span>
+                </motion.a>
+              )
+            })}
+          </div>
+
+          <div className="mt-8 border-t border-black/10 pt-5 text-sm text-black/45">
+            © 2026 Victor Muniz. Todos os direitos reservados.
+          </div>
+        </div>
       </div>
     </footer>
   )

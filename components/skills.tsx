@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Code, Server, Briefcase } from "lucide-react"
-import { motion } from "framer-motion"
+import { ChevronDown, Code, Server, Briefcase, Database, Cloud, PlugZap } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
 
 const skillCategories = [
   {
@@ -22,9 +22,16 @@ const skillCategories = [
     skills: [
       { name: "Nest.js", description: "Framework Node.js para aplicações escaláveis" },
       { name: "PHP", description: "Linguagem server-side versátil" },
-      { name: "MySQL", description: "Banco de dados relacional popular" },
       { name: "REST APIs", description: "Integração e comunicação entre sistemas" },
       { name: "PDO", description: "Extensão PHP para acesso a bancos" },
+    ],
+  },
+  {
+    icon: Database,
+    title: "Banco de Dados",
+    skills: [
+      { name: "MySQL", description: "Banco de dados relacional popular para aplicações web" },
+      { name: "PostgreSQL", description: "Banco de dados relacional robusto para sistemas escaláveis" },
     ],
   },
   {
@@ -32,11 +39,28 @@ const skillCategories = [
     title: "Ferramentas",
     skills: [
       { name: "Git & GitHub", description: "Controle de versão e colaboração" },
-      { name: "Vercel", description: "Plataforma de deploy e hospedagem" },
       { name: "Figma", description: "Design e prototipagem de interfaces" },
       { name: "VS Code", description: "Ambiente de desenvolvimento otimizado" },
       { name: "Postman", description: "Teste e documentação de APIs" },
-      { name: "Google Cloud APIs", description: "Integração com serviços e APIs do Google Cloud" },
+    ],
+  },
+  {
+    icon: Cloud,
+    title: "Hosting",
+    skills: [
+      { name: "Vercel", description: "Deploy moderno com foco em performance e experiência front-end" },
+      { name: "Hostinger", description: "Hospedagem versátil para sites, sistemas e páginas institucionais" },
+      { name: "Netlify", description: "Plataforma de deploy para aplicações estáticas e JAMstack" },
+    ],
+  },
+  {
+    icon: PlugZap,
+    title: "APIs",
+    skills: [
+      { name: "Google Cloud APIs", description: "Integração com serviços e APIs do ecossistema Google Cloud" },
+      { name: "Stripe", description: "Integração para pagamentos online, checkout e cobranças recorrentes" },
+      { name: "Abacate Pay", description: "Gateway de pagamentos para cobranças e fluxos financeiros digitais" },
+      { name: "OpenAI API", description: "Integração de IA para chat, geração de texto e automações inteligentes" },
     ],
   },
 ]
@@ -47,24 +71,35 @@ export function Skills() {
   return (
     <motion.section
       id="skills"
-      className="px-4 py-16 md:px-6 md:py-32 bg-black"
+      className="px-4 py-14 md:px-6 md:py-20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 md:mb-16 tracking-tight text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          Minhas Habilidades
-        </motion.h2>
+      <div className="mx-auto max-w-[1440px] rounded-[2.2rem] border border-black/10 bg-[#f7efe8] px-5 py-8 text-[#111111] shadow-[0_24px_90px_rgba(15,23,42,0.12)] md:px-8 md:py-10">
+        <div className="mb-10 text-center md:mb-14">
+          <motion.p
+            className="text-xs uppercase tracking-[0.4em] text-[#ff5a1f]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Skills
+          </motion.p>
+          <motion.h2
+            className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#111111] sm:text-4xl md:text-6xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            O que eu domino para construir experi&ecirc;ncias fortes.
+          </motion.h2>
+        </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto max-w-5xl">
           <div className="space-y-4">
             {skillCategories.map((category, index) => {
               const Icon = category.icon
@@ -73,7 +108,8 @@ export function Skills() {
               return (
                 <motion.div
                   key={category.title}
-                  className="border border-white/10 rounded-lg overflow-hidden"
+                  layout
+                  className="overflow-hidden rounded-[1.6rem] border border-black/10 bg-white/70"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -81,46 +117,55 @@ export function Skills() {
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                    className={`group flex w-full items-center justify-between p-6 text-left transition-colors ${
+                      isOpen ? "bg-[#111111] text-white" : "hover:bg-[#111111] hover:text-white"
+                    }`}
                   >
                     <div className="flex items-center gap-3">
-                      <Icon className="h-5 w-5 text-white/60" />
-                      <span className="text-xl font-semibold text-white font-sans tracking-wide">{category.title}</span>
+                      <Icon className={`h-5 w-5 transition-colors ${isOpen ? "text-[#ff8c61]" : "text-[#ff5a1f] group-hover:text-[#ff8c61]"}`} />
+                      <span className="font-sans text-xl font-semibold tracking-wide">{category.title}</span>
                     </div>
                     <ChevronDown
-                      className={`h-5 w-5 text-white/60 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      className={`h-5 w-5 transition-all ${isOpen ? "rotate-180 text-white/75" : "text-black/50 group-hover:text-white/75"}`}
                     />
                   </button>
 
-                  {isOpen && (
-                    <motion.div
-                      className="px-6 pb-6 space-y-4 border-t border-white/10 pt-6"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {category.skills.map((skill, skillIndex) => (
-                          <motion.div
-                            key={skill.name}
-                            className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
-                            whileHover={{ scale: 1.02 }}
-                          >
-                            <h4 className="font-semibold text-white font-mono text-sm mb-2 group-hover:text-purple-400 transition-colors">
-                              {skill.name}
-                            </h4>
-                            <p className="text-xs text-white/60 font-mono leading-relaxed">
-                              {skill.description}
-                            </p>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key={`${category.title}-content`}
+                        layout
+                        className="overflow-hidden"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        <div className="space-y-4 border-t border-black/10 px-6 pb-6 pt-6">
+                          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            {category.skills.map((skill, skillIndex) => (
+                              <motion.div
+                                key={skill.name}
+                                className="group rounded-[1.3rem] border border-black/10 bg-[#fffaf6] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#ff5a1f]/40"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -6 }}
+                                transition={{ duration: 0.22, delay: skillIndex * 0.04 }}
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <h4 className="mb-2 font-mono text-sm font-semibold text-[#111111] transition-colors group-hover:text-[#ff5a1f]">
+                                  {skill.name}
+                                </h4>
+                                <p className="font-mono text-xs leading-relaxed text-black/58">
+                                  {skill.description}
+                                </p>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               )
             })}

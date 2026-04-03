@@ -1,154 +1,133 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Code, Briefcase, Award, Users } from "lucide-react"
+import { ArrowDownRight, ArrowUpRight, Award, Briefcase, Code } from "lucide-react"
 
 const stats = [
-  { icon: Code, value: "12+", label: "Projetos" },
-  { icon: Briefcase, value: "2+", label: "Anos Exp." },
-  { icon: Award, value: "3", label: "Certificados" },
+  { icon: Code, value: "12+", label: "Projetos lançados" },
+  { icon: Briefcase, value: "3+", label: "Anos criando produtos" },
+  { icon: Award, value: "5", label: "Certificações e formações" },
 ]
 
 export function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
-
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden"
-    >
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 z-0" />
-      
-      {/* Mouse follower effect */}
-      <motion.div
-        className="absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none z-0"
-        animate={{
-          x: mousePosition.x - 192,
-          y: mousePosition.y - 192,
-        }}
-        transition={{ type: "spring", stiffness: 50, damping: 20 }}
-      />
+    <section id="home" className="relative overflow-hidden px-4 pb-10 pt-28 md:px-6 md:pb-16 md:pt-36">
+      <div className="mx-auto max-w-[1440px]">
+        <motion.div
+          className="rounded-[2.2rem] border border-black/10 bg-[#f7efe8] px-5 pb-8 pt-5 shadow-[0_30px_120px_rgba(15,23,42,0.18)] md:px-8 md:pb-10 md:pt-7"
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4 text-[11px] uppercase tracking-[0.35em] text-black/45 md:pb-5">
+            <span>Desenvolvedor Web</span>
+          </div>
 
-      {/* Main content */}
-      <div className="relative z-10 max-w-6xl w-full flex-1 flex flex-col justify-center">
-        <div className="text-center space-y-8 md:space-y-12">
-          {/* Main heading with animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Victor Muniz
-            </motion.h1>
-            <motion.div
-              className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite]">
-                Desenvolvedor Full-Stack
-              </span>
-            </motion.div>
-            <motion.p
-              className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Transformando ideias em soluções digitais inovadoras com design moderno
-            </motion.p>
-          </motion.div>
+          <div className="grid gap-8 pt-6 md:grid-cols-[1.15fr_0.85fr] md:items-center md:pt-8">
+            <div className="space-y-6 md:space-y-8">
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#ff5a1f]">Victor Muniz</p>
+                <h1 className="max-w-4xl text-[clamp(3rem,8vw,7.6rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-[#111111]">
+                  Full-stack
+                  <br />
+                  com impacto
+                  <br />
+                  visual.
+                </h1>
+              </div>
 
-          {/* Stats */}
-          <motion.div
-            className="flex flex-wrap items-center justify-center gap-4 md:gap-8 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            {stats.map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <motion.div
-                  key={stat.label}
-                  className="p-4 md:p-6 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-400/50 transition-all duration-300 hover:bg-white/10 group"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
+              <p className="max-w-2xl text-base leading-relaxed text-black/62 md:text-xl">
+                Eu crio experi&ecirc;ncias digitais com cara de produto premium:
+                interfaces r&aacute;pidas, anima&ccedil;&otilde;es com presen&ccedil;a e sites que
+                fazem a marca parecer maior no primeiro scroll.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  size="lg"
+                  className="rounded-full bg-[#111111] px-6 text-[#f7efe8] hover:bg-[#222222]"
+                  onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
                 >
-                  <Icon className="h-6 w-6 md:h-8 md:w-8 text-purple-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-white/60">{stat.label}</div>
-                </motion.div>
-              )
-            })}
-          </motion.div>
+                  Ver projetos
+                  <ArrowDownRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-black/15 bg-transparent px-6 text-[#111111] hover:bg-black hover:text-[#f7efe8]"
+                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  Let's talk
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
 
-          {/* CTA Button */}
-          <motion.div
-            className="flex flex-wrap items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            <Button
-              size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white font-mono gap-2 border-0 shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
-              onClick={() => {
-                const element = document.querySelector('#skills')
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' })
-                }
-              }}
+            <motion.div
+              className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-[linear-gradient(160deg,#fffdf8_0%,#fff5ee_58%,#ffd9c5_100%)] p-6 text-[#111111] md:min-h-[520px] md:p-8"
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
             >
-              <img src="/logo.png" alt="Logo" className="h-4 w-4" />
-              Habilidades
-            </Button>
-          </motion.div>
+              <div className="absolute -right-14 top-8 h-64 w-64 rounded-full bg-[#ff5a1f]/14 blur-3xl" />
+              <div className="absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/60 blur-3xl" />
+              <div className="absolute -left-10 bottom-8 h-44 w-44 rounded-full bg-[#111111]/7 blur-3xl" />
+              <div className="relative z-10 flex h-full flex-col justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[#ff5a1f]">Destaque</p>
+                  <h2 className="mt-5 max-w-[9ch] text-[clamp(2.7rem,5.5vw,5rem)] font-semibold leading-[0.94] tracking-[-0.065em] text-[#111111]">
+                    Design,
+                    <br />
+                    c&oacute;digo
+                    <br />
+                    e ritmo.
+                  </h2>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-[1.08fr_0.92fr] md:items-end">
+                  <div className="max-w-[22rem] rounded-[1.7rem] border border-black/10 bg-white/68 p-5 shadow-[0_16px_45px_rgba(255,255,255,0.24)] backdrop-blur-md">
+                    <p className="text-xs uppercase tracking-[0.3em] text-black/45">Perfil</p>
+                    <p className="mt-3 text-lg leading-[1.18] text-black/80 md:text-[1.75rem]">
+                      Sites, landing pages, dashboards e experi&ecirc;ncias front-end com acabamento forte.
+                    </p>
+                  </div>
+
+                  <div className="min-h-[220px] rounded-[1.7rem] bg-[#111111] p-5 text-white shadow-[0_24px_60px_rgba(17,17,17,0.22)] md:p-6">
+                    <p className="text-xs uppercase tracking-[0.3em] text-white/55">Assinatura</p>
+                    <div className="mt-4 text-[clamp(2rem,3vw,3rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-white/94">
+                      Victor
+                      <br />
+                      Muniz
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#ff5a1f]/10 to-transparent" />
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon
+            return (
+              <motion.div
+                key={stat.label}
+                className="rounded-[1.8rem] border border-black/10 bg-white/70 p-5 backdrop-blur-sm"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + index * 0.08 }}
+              >
+                <Icon className="h-5 w-5 text-[#ff5a1f]" />
+                <div className="mt-5 text-4xl font-semibold tracking-tight text-[#111111]">{stat.value}</div>
+                <p className="mt-2 text-sm text-black/60">{stat.label}</p>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
-
-      {/* Scroll indicator - outside main content */}
-      <motion.div
-        className="relative z-10 mt-auto mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 cursor-pointer"
-          onClick={() => {
-            const element = document.querySelector('#skills')
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' })
-            }
-          }}
-        >
-          <span className="text-white/60 text-sm font-mono">Scroll</span>
-          <ChevronDown className="h-6 w-6 text-white/60" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
