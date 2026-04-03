@@ -21,7 +21,7 @@ export function Hero() {
           transition={{ duration: 0.7 }}
         >
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4 text-[11px] uppercase tracking-[0.35em] text-black/45 md:pb-5">
-            <span>Desenvolvedor Web</span>
+            <span>WEB e MOBILE</span>
           </div>
 
           <div className="grid gap-8 pt-6 md:grid-cols-[1.15fr_0.85fr] md:items-center md:pt-8">
@@ -39,8 +39,8 @@ export function Hero() {
 
               <p className="max-w-2xl text-base leading-relaxed text-black/62 md:text-xl">
                 Eu crio experi&ecirc;ncias digitais com cara de produto premium:
-                interfaces r&aacute;pidas, anima&ccedil;&otilde;es com presen&ccedil;a e sites que
-                fazem a marca parecer maior no primeiro scroll.
+                interfaces r&aacute;pidas, anima&ccedil;&otilde;es com presen&ccedil;a, sites e tamb&eacute;m apps
+                que fazem a marca parecer maior no primeiro scroll.
               </p>
 
               <div className="flex flex-wrap gap-3">
