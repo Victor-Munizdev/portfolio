@@ -123,7 +123,21 @@ function ProjectPreview({
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+  const [touchProject, setTouchProject] = useState<string | null>(null)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const displayedProjects = showAll ? projects : projects.slice(0, 4)
+
+  useEffect(() => {
+    const media = window.matchMedia("(hover: none), (pointer: coarse)")
+    const update = () => setIsTouchDevice(media.matches)
+
+    update()
+    media.addEventListener("change", update)
+
+    return () => {
+      media.removeEventListener("change", update)
+    }
+  }, [])
 
   return (
     <section id="projects" className="px-4 py-14 md:px-6 md:py-24">
@@ -153,8 +167,16 @@ export function Projects() {
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                onMouseEnter={() => setHoveredProject(project.title)}
-                onMouseLeave={() => setHoveredProject(null)}
+                onMouseEnter={() => {
+                  if (!isTouchDevice) setHoveredProject(project.title)
+                }}
+                onMouseLeave={() => {
+                  if (!isTouchDevice) setHoveredProject(null)
+                }}
+                onClick={() => {
+                  if (!isTouchDevice) return
+                  setTouchProject((current) => (current === project.title ? null : project.title))
+                }}
               >
                 <div className="grid gap-0">
                   <div className="relative min-h-[260px] overflow-hidden border-b border-black/10 md:min-h-[300px]">
@@ -162,7 +184,7 @@ export function Projects() {
                       title={project.title}
                       image={project.image}
                       previewVideo={project.previewVideo}
-                      isPlaying={hoveredProject === project.title}
+                      isPlaying={isTouchDevice ? touchProject === project.title : hoveredProject === project.title}
                     />
                   </div>
 
