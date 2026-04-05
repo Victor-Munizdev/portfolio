@@ -120,7 +120,7 @@ export function Experience() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#111111] to-[#ff5a1f]"></div>
+            <div className="absolute left-10 md:left-14 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#111111] to-[#ff5a1f]"></div>
 
             <div className="space-y-12">
               <AnimatePresence>
@@ -138,8 +138,8 @@ export function Experience() {
                     }}
                   >
                     {/* Timeline dot */}
-                    <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-[#111111] shadow-lg">
-                      <Briefcase className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                    <div className="relative z-10 flex h-12 w-12 md:h-16 md:w-16 shrink-0 items-center justify-center rounded-full bg-[#111111] shadow-lg">
+                      <Briefcase className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
 
                     {/* Content */}
