@@ -60,8 +60,8 @@ const skillCategories = [
     icon: PlugZap,
     title: "APIs & Integrações",
     skills: [
-      { name: "Stripe & Pagamentos", description: "Implementação de sistemas de cobrança, pagamentos online e gateways nacionais" },
-      { name: "OpenAI API", description: "Implementação de inteligência artificial para automação de processos e chats inteligentes" },
+      { name: "Stripe,AbacatePay & mais", description: "Implementação de sistemas de cobrança, pagamentos online e gateways nacionais" },
+      { name: "OpenAI API & Gemini API", description: "Implementação de inteligência artificial para automação de processos e chats inteligentes" },
       { name: "Google Cloud", description: "Integração estratégica com serviços e APIs avançadas do ecossistema Google" },
       { name: "Product Focus", description: "Construção de soluções com foco em conversão, automação e inteligência artificial" },
     ],
