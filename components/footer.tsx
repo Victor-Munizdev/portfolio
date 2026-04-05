@@ -36,34 +36,6 @@ export function Footer() {
         </div>
 
         <div className="rounded-[2rem] border border-black/10 bg-[#f7efe8] px-5 py-7 text-[#111111] shadow-[0_24px_80px_rgba(15,23,42,0.1)] md:px-8 md:py-8">
-          <div className="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between xl:gap-8">
-            <div className="min-w-0 xl:min-w-[22rem]">
-              <p className="text-xs uppercase tracking-[0.35em] text-black/40">Contato</p>
-              <a
-                href="mailto:munizzvr@gmail.com"
-                className="mt-4 inline-flex max-w-full items-center gap-2 text-lg font-medium break-all xl:text-[1.65rem] hover:text-[#ff5a1f]"
-              >
-                munizzvr@gmail.com
-                <ArrowUpRight className="h-4 w-4 shrink-0" />
-              </a>
-            </div>
-            <div className="min-w-0 xl:min-w-[18rem]">
-              <p className="text-xs uppercase tracking-[0.35em] text-black/40">Telefone</p>
-              <a
-                href="https://wa.me/5511914098185"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex max-w-full items-center gap-2 text-lg font-medium xl:text-[1.65rem] hover:text-[#ff5a1f]"
-              >
-                (11) 91409-8185
-                <ArrowUpRight className="h-4 w-4 shrink-0" />
-              </a>
-            </div>
-            <div className="min-w-0 xl:min-w-[16rem]">
-              <p className="text-xs uppercase tracking-[0.35em] text-black/40">Base</p>
-              <p className="mt-4 text-lg font-medium xl:text-[1.65rem]">São Paulo, Brasil</p>
-            </div>
-          </div>
 
           <div className="mt-8 rounded-[1.6rem] border border-black/10 bg-white/55 p-4">
             <p className="text-xs uppercase tracking-[0.35em] text-black/40">Atuação</p>
