@@ -8,13 +8,22 @@ import { ArrowUpRight } from "lucide-react"
 
 const projects = [
   {
+    title: "Doce Manhã – Experiência de Compra Digital",
+    description: "Digitalização de cardápio focado em UX, resultando em um aumento de +15% no ticket médio nos primeiros 30 dias e automação completa da triagem de pedidos via WhatsApp.",
+    tags: ["Next.js", "UX Strategy", "+15% em 30 dias", "Mobile First"],
+    image: "/website/doce_manha.png",
+    previewVideo: "/website/doce-manha.mp4",
+    link: "https://doce-manha.vercel.app",
+    featured: true,
+  },
+  {
     title: "Carioca Bartender – Conversão de Eventos Premium",
     description: "Reestruturação visual para eventos premium, resultando em um aumento de +30% na conversão em 45 dias através de uma otimização de UX orientada a dados e análise de comportamento.",
     tags: ["Next.js", "Lead Gen", "+30% em 45 dias", "Data-Driven UX"],
     image: "/website/carioca_bartender.png",
     previewVideo: "/website/carioca-bartender.mp4",
     link: "https://carioca-bartender.vercel.app",
-    featured: true,
+    featured: false,
   },
   {
     title: "Hells Brindes – Otimização de Funil de Vendas",
@@ -23,14 +32,6 @@ const projects = [
     image: "/website/hellsbrindes.png",
     previewVideo: "/website/hellsbrindes.mp4",
     link: "https://hellsbrindes.com.br",
-  },
-  {
-    title: "Doce Manhã – Experiência de Compra Digital",
-    description: "Digitalização de cardápio focado em UX, resultando em um aumento de +15% no ticket médio nos primeiros 30 dias e automação completa da triagem de pedidos via WhatsApp.",
-    tags: ["Next.js", "UX Strategy", "+15% em 30 dias", "Mobile First"],
-    image: "/website/doce_manha.png",
-    previewVideo: "/website/doce-manha.mp4",
-    link: "https://doce-manha.vercel.app",
   },
   {
     title: "Exposoft Alcina – Gestão de Operação Acadêmica",
