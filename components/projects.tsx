@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 
 const projects = [
   {
@@ -23,7 +24,6 @@ const projects = [
     image: "/website/carioca_bartender.png",
     previewVideo: "/website/carioca-bartender.mp4",
     link: "https://carioca-bartender.vercel.app",
-    featured: false,
   },
   {
     title: "Hells Brindes – Otimização de Funil de Vendas",
@@ -48,17 +48,19 @@ function ProjectPreview({
   image,
   previewVideo,
   isPlaying,
+  isTouchDevice,
 }: {
   title: string
   image: string
   previewVideo: string | null
   isPlaying: boolean
+  isTouchDevice: boolean
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
   useEffect(() => {
     const video = videoRef.current
-    if (!video || !previewVideo) return
+    if (!video || !previewVideo || isTouchDevice) return
 
     const freezeOnFirstFrame = () => {
       if (video.readyState >= 2) {
@@ -76,11 +78,11 @@ function ProjectPreview({
     return () => {
       video.removeEventListener("loadeddata", freezeOnFirstFrame)
     }
-  }, [previewVideo])
+  }, [previewVideo, isTouchDevice])
 
   useEffect(() => {
     const video = videoRef.current
-    if (!video || !previewVideo) return
+    if (!video || !previewVideo || isTouchDevice) return
 
     if (isPlaying) {
       if (video.paused) {
@@ -93,15 +95,17 @@ function ProjectPreview({
         video.currentTime = 0.05
       }
     }
-  }, [isPlaying, previewVideo])
+  }, [isPlaying, previewVideo, isTouchDevice])
 
-  if (!previewVideo) {
+  if (!previewVideo || isTouchDevice) {
     return (
-      <img
-        src={image}
+      <Image
+        src={image || "/placeholder.svg"}
         alt={title}
+        width={800}
+        height={600}
         className="h-full w-full object-cover object-top transition-transform duration-500"
-        loading="lazy"
+        priority={isPlaying}
       />
     )
   }
@@ -116,7 +120,7 @@ function ProjectPreview({
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       />
     </div>
   )
@@ -220,6 +224,7 @@ export function Projects() {
                       image={project.image}
                       previewVideo={project.previewVideo}
                       isPlaying={isTouchDevice ? visibleProject === project.title : hoveredProject === project.title}
+                      isTouchDevice={isTouchDevice}
                     />
                   </div>
 

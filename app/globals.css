@@ -202,13 +202,17 @@
 
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
-  /* Disable all animations and transitions on mobile for performance */
-  *,
-  *::before,
-  *::after {
+  /* Disable only non-critical heavy animations on mobile */
+  .animate-blob,
+  .glitch-effect,
+  .glitch-bg::before,
+  .glitch-bg::after {
     animation: none !important;
-    transition: none !important;
-    transform: none !important;
+  }
+
+  /* Reduce transition duration for better responsiveness */
+  * {
+    transition-duration: 150ms !important;
   }
 }
 

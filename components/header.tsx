@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const menuItems = [
   { number: "01", label: "Início", href: "#home" },
@@ -51,7 +52,13 @@ export function Header() {
             className="flex items-center gap-3 text-left"
             aria-label="Ir para o início"
           >
-            <img src="/logo.png" alt="Logo Victor Muniz" className="h-7 w-7 rounded-full object-cover" />
+            <Image 
+              src="/logo.png" 
+              alt="Logo Victor Muniz" 
+              width={28} 
+              height={28} 
+              className="h-7 w-7 rounded-full object-cover" 
+            />
             <span className="text-lg font-semibold tracking-tight text-[#111111] md:text-2xl">
               Victor Muniz
             </span>
