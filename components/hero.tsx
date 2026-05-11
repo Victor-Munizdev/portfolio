@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDownRight, ArrowUpRight, Award, Briefcase, Code } from "lucide-react"
 
@@ -14,12 +13,7 @@ export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden px-4 pb-10 pt-28 md:px-6 md:pb-16 md:pt-36">
       <div className="mx-auto max-w-[1440px]">
-        <motion.div
-          className="rounded-[2.2rem] border border-black/10 bg-[#f7efe8] px-5 pb-8 pt-5 shadow-[0_30px_120px_rgba(15,23,42,0.18)] md:px-8 md:pb-10 md:pt-7"
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
+        <div className="hero-reveal rounded-[2.2rem] border border-black/10 bg-[#f7efe8] px-5 pb-8 pt-5 shadow-[0_30px_120px_rgba(15,23,42,0.18)] md:px-8 md:pb-10 md:pt-7">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4 text-[11px] uppercase tracking-[0.35em] text-black/45 md:pb-5">
             <span>DESENVOLVEDOR WEB e MOBILE</span>
           </div>
@@ -62,12 +56,7 @@ export function Hero() {
               </div>
             </div>
 
-            <motion.div
-              className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-[linear-gradient(160deg,#fffdf8_0%,#fff5ee_58%,#ffd9c5_100%)] p-6 text-[#111111] md:min-h-[520px] md:p-8"
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-            >
+            <div className="hero-reveal hero-reveal-delay relative overflow-hidden rounded-[2rem] border border-black/10 bg-[linear-gradient(160deg,#fffdf8_0%,#fff5ee_58%,#ffd9c5_100%)] p-6 text-[#111111] md:min-h-[520px] md:p-8">
               <div className="absolute -right-14 top-8 h-64 w-64 rounded-full bg-[#ff5a1f]/14 blur-3xl" />
               <div className="absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/60 blur-3xl" />
               <div className="absolute -left-10 bottom-8 h-44 w-44 rounded-full bg-[#111111]/7 blur-3xl" />
@@ -114,25 +103,23 @@ export function Hero() {
               </div>
 
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#ff5a1f]/10 to-transparent" />
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
-              <motion.div
+              <div
                 key={stat.label}
-                className="rounded-[1.8rem] border border-black/10 bg-white/70 p-5 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.08 }}
+                className="hero-reveal rounded-[1.8rem] border border-black/10 bg-white/70 p-5 backdrop-blur-sm"
+                style={{ animationDelay: `${180 + index * 80}ms` }}
               >
                 <Icon className="h-5 w-5 text-[#ff5a1f]" />
                 <div className="mt-5 text-4xl font-semibold tracking-tight text-[#111111]">{stat.value}</div>
                 <p className="mt-2 text-sm text-black/60">{stat.label}</p>
-              </motion.div>
+              </div>
             )
           })}
         </div>

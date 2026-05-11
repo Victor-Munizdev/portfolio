@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -12,8 +12,7 @@ const projects = [
     title: "Doce Manhã – Experiência de Compra Digital",
     description: "Digitalização de cardápio focado em UX, resultando em um aumento de +15% no ticket médio nos primeiros 30 dias e automação completa da triagem de pedidos via WhatsApp.",
     tags: ["Next.js", "UX Strategy", "+15% em 30 dias", "Mobile First"],
-    image: "/website/doce_manha.png",
-    previewVideo: "/website/doce-manha.mp4",
+    image: "/website/doce-manha.png",
     link: "https://doce-manha.vercel.app",
     featured: true,
   },
@@ -21,24 +20,21 @@ const projects = [
     title: "Carioca Bartender – Conversão de Eventos Premium",
     description: "Reestruturação visual para eventos premium, resultando em um aumento de +30% na conversão em 45 dias através de uma otimização de UX orientada a dados e análise de comportamento.",
     tags: ["Next.js", "Lead Gen", "+30% em 45 dias", "Data-Driven UX"],
-    image: "/website/carioca_bartender.png",
-    previewVideo: "/website/carioca-bartender.mp4",
+    image: "/website/carioca-bartender.png",
     link: "https://carioca-bartender.vercel.app",
   },
   {
-    title: "Hells Brindes – Otimização de Funil de Vendas",
-    description: "Otimização do funil de vendas corporativas, alcançando +28% de leads qualificados em 60 dias e reduzindo drasticamente o abandono no checkout com foco em performance real (Web Vitals).",
-    tags: ["Vite", "Sales Funnel", "+28% em 60 dias", "Web Vitals"],
-    image: "/website/hellsbrindes.png",
-    previewVideo: "/website/hellsbrindes.mp4",
-    link: "https://hellsbrindes.com.br",
+    title: "Grupo Nasli – Sistema de Relatórios",
+    description: "Apresentação institucional para solução de relatórios de vistoria, destacando cobertura nacional, dados em tempo real e operação digital para o mercado automotivo.",
+    tags: ["Landing Page", "Relatórios", "Vistorias", "Performance"],
+    image: "/website/nasli.png",
+    link: "https://apresentacao-sistema-relatorios.sistemansl.com",
   },
   {
     title: "Exposoft Alcina – Gestão de Operação Acadêmica",
     description: "Plataforma focada em eliminar gargalos operacionais na exposição de projetos de TI, suportando +200 acessos simultâneos com 100% de estabilidade e performance garantida.",
     tags: ["HTML/CSS/JS", "Scalability", "+200 Acessos", "Performance"],
-    image: "/website/exposoft_alcina.png",
-    previewVideo: "/website/exposoft.mp4",
+    image: "/website/exposoft.png",
     link: "https://exposoftalcina.com",
   },
 ]
@@ -46,81 +42,22 @@ const projects = [
 function ProjectPreview({
   title,
   image,
-  previewVideo,
-  isPlaying,
-  isTouchDevice,
 }: {
   title: string
   image: string
-  previewVideo: string | null
-  isPlaying: boolean
-  isTouchDevice: boolean
 }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || !previewVideo || isTouchDevice) return
-
-    const freezeOnFirstFrame = () => {
-      if (video.readyState >= 2) {
-        video.currentTime = 0.05
-        video.pause()
-      }
-    }
-
-    if (video.readyState >= 2) {
-      freezeOnFirstFrame()
-    } else {
-      video.addEventListener("loadeddata", freezeOnFirstFrame, { once: true })
-    }
-
-    return () => {
-      video.removeEventListener("loadeddata", freezeOnFirstFrame)
-    }
-  }, [previewVideo, isTouchDevice])
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || !previewVideo || isTouchDevice) return
-
-    if (isPlaying) {
-      if (video.paused) {
-        video.currentTime = 0
-        void video.play().catch(() => {})
-      }
-    } else {
-      video.pause()
-      if (video.readyState >= 2) {
-        video.currentTime = 0.05
-      }
-    }
-  }, [isPlaying, previewVideo, isTouchDevice])
-
-  if (!previewVideo || isTouchDevice) {
-    return (
-      <Image
-        src={image || "/placeholder.svg"}
-        alt={title}
-        width={800}
-        height={600}
-        className="h-full w-full object-cover object-top transition-transform duration-500"
-        priority={isPlaying}
-      />
-    )
-  }
+  const isLightPreview = image.includes("nasli")
 
   return (
-    <div className="h-full w-full">
-      <video
-        ref={videoRef}
-        src={previewVideo}
-        poster={image}
-        className="h-full w-full object-cover object-top transition-transform duration-500"
-        muted
-        loop
-        playsInline
-        preload="metadata"
+    <div className={`h-full w-full ${isLightPreview ? "bg-[#f8fbff]" : "bg-[#07070b]"}`}>
+      <Image
+        src={image}
+        alt={title}
+        width={1200}
+        height={720}
+        className="h-full w-full object-contain object-center transition-transform duration-500"
+        loading="lazy"
+        sizes="(min-width: 1024px) 50vw, 100vw"
       />
     </div>
   )
@@ -128,54 +65,7 @@ function ProjectPreview({
 
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
-  const [visibleProject, setVisibleProject] = useState<string | null>(null)
-  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const displayedProjects = showAll ? projects : projects.slice(0, 4)
-
-  useEffect(() => {
-    const media = window.matchMedia("(hover: none), (pointer: coarse)")
-    const update = () => setIsTouchDevice(media.matches)
-
-    update()
-    media.addEventListener("change", update)
-
-    return () => {
-      media.removeEventListener("change", update)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!isTouchDevice) {
-      setVisibleProject(null)
-      return
-    }
-
-    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project-card]"))
-    if (!cards.length) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-
-        if (visibleEntries.length > 0) {
-          const activeTitle = visibleEntries[0].target.getAttribute("data-project-card")
-          setVisibleProject(activeTitle)
-        }
-      },
-      {
-        threshold: [0.35, 0.5, 0.7],
-      }
-    )
-
-    cards.forEach((card) => observer.observe(card))
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [isTouchDevice, displayedProjects])
 
   return (
     <section id="projects" className="px-4 py-14 md:px-6 md:py-24">
@@ -208,12 +98,6 @@ export function Projects() {
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
                 whileHover={{ y: -6, scale: 1.005 }}
-                onMouseEnter={() => {
-                  if (!isTouchDevice) setHoveredProject(project.title)
-                }}
-                onMouseLeave={() => {
-                  if (!isTouchDevice) setHoveredProject(null)
-                }}
               >
                 <div className={`grid gap-0 ${(project as any).featured ? "lg:grid-cols-2" : ""}`}>
                   <div className={`relative min-h-[260px] overflow-hidden border-black/10 md:min-h-[300px] ${
@@ -222,9 +106,6 @@ export function Projects() {
                     <ProjectPreview
                       title={project.title}
                       image={project.image}
-                      previewVideo={project.previewVideo}
-                      isPlaying={isTouchDevice ? visibleProject === project.title : hoveredProject === project.title}
-                      isTouchDevice={isTouchDevice}
                     />
                   </div>
 

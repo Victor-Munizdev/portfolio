@@ -140,7 +140,11 @@ export function Certificates() {
                     </div>
                   </div>
 
-                  <p className="text-sm leading-relaxed text-black/68">{cert.description}</p>
+                  {typeof cert.description === "string" ? (
+                    <p className="text-sm leading-relaxed text-black/68">{cert.description}</p>
+                  ) : (
+                    <div className="text-sm leading-relaxed text-black/68">{cert.description}</div>
+                  )}
 
                   <div className="flex flex-wrap gap-2">
                     {cert.skills.map((skill) => (

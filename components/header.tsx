@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -84,21 +83,11 @@ export function Header() {
         </div>
       </header>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
+      {isMenuOpen && (
+          <div
             className="fixed inset-0 z-[100] overflow-y-auto bg-[#0f0604]/72 p-3 backdrop-blur-md md:p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
           >
-            <motion.div
-              className="mx-auto flex min-h-[calc(100dvh-1.5rem)] max-w-[1440px] flex-col rounded-[2rem] bg-[#f7efe8] p-5 text-[#111111] md:min-h-full md:p-10"
-              initial={{ y: 32, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 24, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <div className="mobile-menu-panel mx-auto flex min-h-[calc(100dvh-1.5rem)] max-w-[1440px] flex-col rounded-[2rem] bg-[#f7efe8] p-5 text-[#111111] md:min-h-full md:p-10">
               <div className="sticky top-0 z-10 -mx-5 mb-6 flex items-start justify-between bg-[#f7efe8]/96 px-5 pb-4 pt-1 backdrop-blur-sm md:static md:m-0 md:mb-10 md:bg-transparent md:px-0 md:pb-0 md:pt-0">
                 <div>
                   <p className="text-xs uppercase tracking-[0.35em] text-black/45">Navigation</p>
@@ -117,17 +106,14 @@ export function Header() {
 
               <nav className="grid gap-3 md:mt-6 md:gap-4">
                 {menuItems.map((item, index) => (
-                  <motion.button
+                  <button
                     key={item.href}
                     onClick={() => {
                       setIsMenuOpen(false)
                       setTimeout(() => scrollTo(item.href), 120)
                     }}
                     className="group flex items-center justify-between rounded-[1.5rem] border border-black/10 bg-white/55 px-4 py-4 text-left transition-colors hover:bg-[#ff5a1f] hover:text-white md:px-7 md:py-6"
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 12 }}
-                    transition={{ delay: 0.05 * index }}
+                    style={{ animationDelay: `${index * 35}ms` }}
                   >
                     <div className="flex min-w-0 items-center gap-3 md:gap-6">
                       <span className="text-xs uppercase tracking-[0.35em] text-black/40 group-hover:text-white/70">
@@ -138,7 +124,7 @@ export function Header() {
                       </span>
                     </div>
                     <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 md:h-6 md:w-6" />
-                  </motion.button>
+                  </button>
                 ))}
               </nav>
 
@@ -152,10 +138,9 @@ export function Header() {
                   <p className="mt-2 text-lg md:mt-3 md:text-3xl">São Paulo, Brasil</p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   )
 }

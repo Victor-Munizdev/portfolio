@@ -200,6 +200,55 @@
   animation: loading-spin 0.8s linear infinite;
 }
 
+.hero-reveal {
+  animation: hero-reveal 520ms ease-out both;
+}
+
+.hero-reveal-delay {
+  animation-delay: 120ms;
+}
+
+.mobile-menu-panel {
+  animation: menu-reveal 220ms ease-out both;
+}
+
+.mobile-menu-panel nav > button {
+  animation: menu-item-reveal 200ms ease-out both;
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-item-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
   /* Disable only non-critical heavy animations on mobile */
@@ -213,6 +262,15 @@
   /* Reduce transition duration for better responsiveness */
   * {
     transition-duration: 150ms !important;
+  }
+
+  .panel-aura,
+  .panel-grid {
+    display: none;
+  }
+
+  body {
+    background-attachment: scroll;
   }
 }
 

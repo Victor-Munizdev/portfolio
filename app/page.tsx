@@ -1,63 +1,21 @@
-"use client"
-
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { Skills } from "@/components/skills"
-import { Experience } from "@/components/experience"
-import { Projects } from "@/components/projects"
-import { Certificates } from "@/components/certificates"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
+import { ScrollEffects } from "@/components/scroll-effects"
 
-gsap.registerPlugin(ScrollTrigger)
+const Projects = dynamic(() => import("@/components/projects").then((mod) => mod.Projects))
+const Experience = dynamic(() => import("@/components/experience").then((mod) => mod.Experience))
+const Skills = dynamic(() => import("@/components/skills").then((mod) => mod.Skills))
+const Certificates = dynamic(() => import("@/components/certificates").then((mod) => mod.Certificates))
+const Contact = dynamic(() => import("@/components/contact").then((mod) => mod.Contact))
+const Footer = dynamic(() => import("@/components/footer").then((mod) => mod.Footer))
 
 export default function Home() {
-  const mainRef = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const main = mainRef.current
-    if (!main) return
-
-    const media = gsap.matchMedia()
-
-    media.add("(min-width: 1024px)", () => {
-      const panelElements = gsap.utils.toArray<HTMLElement>(".scroll-panel")
-
-      panelElements.forEach((panel, index) => {
-        const content = panel.querySelector<HTMLElement>(".panel-content")
-
-        if (content) {
-          gsap.fromTo(
-            content,
-            { opacity: index === 0 ? 1 : 0.82, y: index === 0 ? 0 : 48 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: panel,
-                start: index === 0 ? "top top" : "top 84%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          )
-        }
-      })
-    })
-
-    return () => {
-      media.revert()
-    }
-  }, [])
-
   return (
     <>
       <Header />
-      <main ref={mainRef} className="scroll-stage min-h-screen">
+      <ScrollEffects />
+      <main className="scroll-stage min-h-screen">
         <section className="scroll-panel relative overflow-clip" data-panel="home" data-theme="sunrise">
           <div className="panel-aura panel-aura-left" />
           <div className="panel-aura panel-aura-right" />
