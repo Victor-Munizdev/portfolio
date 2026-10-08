@@ -184,6 +184,16 @@ export const compactProjects: CompactProject[] = [
       },
     },
     stack: ["Next.js", "React"],
+    image: {
+      src: "/website/carioca-bartender.webp",
+      width: 1280,
+      height: 674,
+      tone: "dark",
+      alt: {
+        pt: "Página inicial do site Carioca Bartender",
+        en: "Home page of the Carioca Bartender website",
+      },
+    },
     link: {
       href: "https://carioca-bartender.vercel.app",
       label: { pt: "Abrir o site", en: "Open the site" },
@@ -205,6 +215,16 @@ export const compactProjects: CompactProject[] = [
       },
     },
     stack: ["HTML", "CSS", "JavaScript"],
+    image: {
+      src: "/website/exposoft.webp",
+      width: 1280,
+      height: 676,
+      tone: "dark",
+      alt: {
+        pt: "Página inicial da plataforma Exposoft Alcina",
+        en: "Home page of the Exposoft Alcina platform",
+      },
+    },
     link: {
       href: "https://exposoftalcina.com",
       label: { pt: "Abrir o site", en: "Open the site" },

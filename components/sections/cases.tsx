@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { CaseStudy } from "@/components/sections/case-study"
 import { ExternalLink } from "@/components/ui/external-link"
 import { Section } from "@/components/ui/section"
@@ -21,10 +22,24 @@ export function Cases({ locale }: { locale: Locale }) {
         {compactProjects.map((project) => (
           <li
             key={project.slug}
-            className="grid gap-x-10 gap-y-3 border-t border-line py-6 last:border-b lg:grid-cols-12 lg:items-baseline"
+            className="grid gap-x-10 gap-y-4 border-t border-line py-6 last:border-b lg:grid-cols-12 lg:items-center"
           >
-            <p className="font-medium text-bone lg:col-span-3">{project.client}</p>
-            <p className="text-text-2 lg:col-span-5">{project.summary[locale]}</p>
+            {project.image ? (
+              <figure className="overflow-hidden rounded-frame border border-line bg-surface lg:col-span-3">
+                <Image
+                  src={project.image.src}
+                  alt={project.image.alt[locale]}
+                  width={project.image.width}
+                  height={project.image.height}
+                  sizes="(min-width: 1024px) 290px, 100vw"
+                  className="h-auto w-full"
+                />
+              </figure>
+            ) : null}
+            <div className="lg:col-span-5">
+              <p className="font-medium text-bone">{project.client}</p>
+              <p className="mt-2 text-text-2">{project.summary[locale]}</p>
+            </div>
             <p className="flex items-baseline gap-2 lg:col-span-2">
               {project.metric ? (
                 <>

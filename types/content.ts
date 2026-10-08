@@ -42,6 +42,7 @@ export interface CompactProject {
   slug: string
   client: string
   summary: Localized
+  image?: CaseImage
   stack: string[]
   metric?: Metric
   link?: { href: string; label: Localized }
