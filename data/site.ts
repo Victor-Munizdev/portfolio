@@ -20,8 +20,8 @@ export const site = {
 } as const
 
 export const role: Localized = {
-  pt: "Desenvolvedor Full-Stack",
-  en: "Full-Stack Developer",
+  pt: "Desenvolvedor Full-Stack / Software Engineer",
+  en: "Full-Stack Developer / Software Engineer",
 }
 
 export const location: Localized = {

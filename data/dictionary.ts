@@ -2,11 +2,11 @@ import type { Locale } from "@/lib/i18n"
 
 const pt = {
   meta: {
-    title: "Victor Muniz — Desenvolvedor Full-Stack · Next.js, NestJS, PostgreSQL",
+    title: "Victor Muniz — Desenvolvedor Full-Stack e Software Engineer · Next.js, NestJS",
     description:
-      "Desenvolvedor full-stack em São Paulo, remoto. Construo e opero aplicações web de ponta a ponta com Next.js, NestJS e PostgreSQL, da arquitetura à produção.",
+      "Desenvolvedor full-stack e software engineer em São Paulo. Assumo aplicações web de ponta a ponta com Next.js, NestJS, Prisma e PostgreSQL, da arquitetura ao deploy e à sustentação em produção.",
     ogTitle: "Do problema à produção, e o que vem depois.",
-    ogTagline: "Desenvolvedor Full-Stack · Next.js · NestJS · PostgreSQL",
+    ogTagline: "Full-Stack Developer / Software Engineer · Next.js · NestJS · PostgreSQL",
   },
   skip: "Pular para o conteúdo",
   nav: {
@@ -25,7 +25,7 @@ const pt = {
   hero: {
     titleLead: "Desenvolvedor full-stack.",
     titleRest: ["Do problema à produção,", "e o que vem depois."],
-    lead: "Sou Victor Muniz. Projeto, construo e opero aplicações web de ponta a ponta: frontend em Next.js, backend em NestJS, PostgreSQL, integrações, infraestrutura e sustentação em produção.",
+    lead: "Sou Victor Muniz, Full-Stack Developer / Software Engineer. Assumo aplicações web de ponta a ponta: Next.js no frontend; NestJS, Prisma e PostgreSQL no backend; APIs, integrações, autenticação e autorização; CI/CD, Docker e Linux em VPS; segurança e sustentação em produção.",
     ctaCases: "Ver cases",
     ctaProject: "Falar sobre um projeto",
     pipelineLabel: "O caminho que eu cubro em uma entrega",
@@ -55,7 +55,7 @@ const pt = {
   },
   experience: {
     title: "Experiência",
-    lead: "Onde assumi sistemas reais, do código à operação.",
+    lead: "Hoje atuo com ownership end-to-end sobre aplicações em produção: do código à infraestrutura e à sustentação.",
     earlier: "Antes disso",
   },
   process: {
@@ -64,11 +64,11 @@ const pt = {
   },
   stack: {
     title: "Stack",
-    lead: "As tecnologias que uso no dia a dia, organizadas pelo papel que cumprem em um sistema.",
+    lead: "A stack do meu trabalho atual, organizada pelo papel que cada parte cumpre em um sistema em produção.",
   },
   services: {
     title: "Tem um produto para construir ou um sistema para estabilizar?",
-    lead: "Trabalho com founders e empresas que precisam de alguém para assumir uma entrega crítica ou o produto inteiro, da primeira conversa à sustentação.",
+    lead: "Trabalho com founders e empresas que precisam de alguém para assumir uma entrega crítica ou o produto inteiro: arquitetura, frontend, backend, banco de dados, integrações, deploy e sustentação em produção.",
     cta: "Me conte o problema",
     ctaWhatsapp: "Chamar no WhatsApp",
   },
@@ -79,7 +79,7 @@ const pt = {
   },
   contact: {
     title: "Me conte o problema.",
-    lead: "Uma vaga, um produto para tirar do papel ou uma aplicação que precisa parar de cair. Respondo em até 24 horas.",
+    lead: "Uma vaga de Full-Stack / Software Engineer, um produto para tirar do papel ou uma aplicação em produção que precisa de dono. Respondo em até 24 horas.",
     email: "E-mail",
     whatsapp: "WhatsApp",
     linkedin: "LinkedIn",
@@ -98,9 +98,9 @@ const en: Dictionary = {
   meta: {
     title: "Victor Muniz — Full-Stack Developer & Software Engineer · Next.js, NestJS",
     description:
-      "Full-stack developer and software engineer based in Brazil, working remotely. I build and operate production web applications end to end with Next.js, NestJS and PostgreSQL.",
+      "Full-stack developer and software engineer based in São Paulo, Brazil. End-to-end ownership of production web applications with Next.js, NestJS, Prisma and PostgreSQL, from system architecture to deployment and production support.",
     ogTitle: "From problem to production, and everything after.",
-    ogTagline: "Full-Stack Developer · Next.js · NestJS · PostgreSQL",
+    ogTagline: "Full-Stack Developer / Software Engineer · Next.js · NestJS · PostgreSQL",
   },
   skip: "Skip to content",
   nav: {
@@ -119,7 +119,7 @@ const en: Dictionary = {
   hero: {
     titleLead: "Full-stack developer.",
     titleRest: ["From problem to production,", "and everything after."],
-    lead: "I'm Victor Muniz. I design, build and operate web applications with end-to-end ownership: Next.js frontends, NestJS backend services, PostgreSQL, third-party integrations, infrastructure and production support.",
+    lead: "I'm Victor Muniz, a Full-Stack Developer / Software Engineer. I take end-to-end ownership of web applications: Next.js on the frontend; NestJS, Prisma and PostgreSQL on the backend; APIs, third-party integrations, authentication and authorization; CI/CD pipelines, Docker and Linux on a VPS; security and production support.",
     ctaCases: "See case studies",
     ctaProject: "Discuss a project",
     pipelineLabel: "The path I cover in a delivery",
@@ -149,7 +149,7 @@ const en: Dictionary = {
   },
   experience: {
     title: "Experience",
-    lead: "Where I owned real systems, from code to operations.",
+    lead: "Today I work with end-to-end ownership of production applications: from code to infrastructure and production support.",
     earlier: "Before that",
   },
   process: {
@@ -158,11 +158,11 @@ const en: Dictionary = {
   },
   stack: {
     title: "Stack",
-    lead: "The technologies I use every day, organized by the job they do in a system.",
+    lead: "The stack behind my current work, organized by the job each part does in a production system.",
   },
   services: {
     title: "Have a product to build or a system to stabilize?",
-    lead: "I work with founders and companies that need someone to own a critical delivery or the whole product, from the first conversation through production support.",
+    lead: "I work with founders and companies that need someone to own a critical delivery or the whole product: system architecture, frontend, backend services, database design, integrations, deployment and production support.",
     cta: "Tell me the problem",
     ctaWhatsapp: "Message on WhatsApp",
   },
@@ -173,7 +173,7 @@ const en: Dictionary = {
   },
   contact: {
     title: "Tell me the problem.",
-    lead: "A role, a product to get off the ground or an application that needs to stop going down. I reply within 24 hours.",
+    lead: "A Full-Stack / Software Engineer role, a product to get off the ground or a production application that needs an owner. I reply within 24 hours.",
     email: "Email",
     whatsapp: "WhatsApp",
     linkedin: "LinkedIn",

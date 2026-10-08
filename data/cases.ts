@@ -23,8 +23,8 @@ export const caseStudies: CaseStudy[] = [
       en: "An inspection management system with real-time dashboards, permission-based user access, a centralized database of assets and clients, and automated pricing through the FIPE vehicle price table.",
     },
     role: {
-      pt: "Desenvolvimento e manutenção do sistema de ponta a ponta: interface, regras de negócio, banco de dados, integração externa e testes de qualidade antes de cada entrega.",
-      en: "End-to-end development and maintenance of the system: interface, business rules, database, third-party integration and quality testing before each release.",
+      pt: "Desenvolvimento e manutenção do sistema de ponta a ponta: interface, regras de negócio, banco de dados, controle de acesso e integração externa.",
+      en: "End-to-end development and maintenance of the system: interface, business rules, database, access control and third-party integration.",
     },
     architecture: {
       pt: [

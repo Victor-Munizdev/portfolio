@@ -19,8 +19,8 @@ export const stackGroups: StackGroup[] = [
       en: "APIs and business rules that live on the server.",
     },
     items: {
-      pt: ["NestJS", "Node.js", "APIs REST", "Webhooks", "Autenticação e autorização", "PHP"],
-      en: ["NestJS", "Node.js", "REST APIs", "Webhooks", "Authentication and authorization", "PHP"],
+      pt: ["NestJS", "Node.js", "APIs REST", "Webhooks", "Autenticação e autorização", "Integrações com APIs externas"],
+      en: ["NestJS", "Node.js", "REST APIs", "Webhooks", "Authentication and authorization", "Third-party integrations"],
     },
   },
   {
@@ -30,8 +30,8 @@ export const stackGroups: StackGroup[] = [
       en: "Database design that holds up as the product evolves.",
     },
     items: {
-      pt: ["PostgreSQL", "Prisma", "SQL", "Modelagem de dados", "Migrations", "MySQL"],
-      en: ["PostgreSQL", "Prisma", "SQL", "Data modeling", "Migrations", "MySQL"],
+      pt: ["PostgreSQL", "Prisma", "SQL", "Modelagem de dados", "Migrations"],
+      en: ["PostgreSQL", "Prisma", "SQL", "Database design", "Migrations"],
     },
   },
   {
@@ -41,8 +41,8 @@ export const stackGroups: StackGroup[] = [
       en: "From container to domain, with automated deployment.",
     },
     items: {
-      pt: ["Docker", "Linux", "VPS", "Nginx e reverse proxy", "CI/CD", "Vercel"],
-      en: ["Docker", "Linux", "VPS", "Nginx and reverse proxy", "CI/CD pipelines", "Vercel"],
+      pt: ["Docker", "Linux em VPS", "Nginx e reverse proxy", "CI/CD", "Deploy em produção", "Vercel"],
+      en: ["Docker", "Linux on a VPS", "Nginx and reverse proxy", "CI/CD pipelines", "Production deployment", "Vercel"],
     },
   },
   {
@@ -56,15 +56,15 @@ export const stackGroups: StackGroup[] = [
         "Arquitetura de software",
         "Segurança de aplicações web",
         "Debugging em produção",
-        "Integrações: pagamentos (Stripe, AbacatePay) e IA (OpenAI, Gemini)",
-        "Monitoramento e resposta a incidentes",
+        "Sustentação e resposta a incidentes",
+        "Pagamentos (Stripe, AbacatePay) e IA (OpenAI, Gemini)",
       ],
       en: [
         "System architecture",
         "Web application security",
         "Production debugging",
-        "Third-party integrations: payments (Stripe, AbacatePay) and AI (OpenAI, Gemini)",
-        "Monitoring and incident response",
+        "Production support and incident response",
+        "Payments (Stripe, AbacatePay) and AI (OpenAI, Gemini)",
       ],
     },
   },
